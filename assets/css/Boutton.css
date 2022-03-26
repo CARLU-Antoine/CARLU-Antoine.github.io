@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+.button{
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 40px;
+  width: 225px;
+  background:orange;
+  border-radius: 55px;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  overflow: hidden;
+}
+.button.active{
+  height: 20px;
+  width: 175px;
+}
+.button::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 100%;
+  background: #df8d15;
+  border-radius: 55px;
+  transition: all 6s ease-in-out;
+}
+.button.active::before{
+  animation: layer 6s ease-in-out forwards;
+}
+@keyframes layer {
+  100%{
+    left: 0%;
+  }
+}
+.button .content{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  transition-delay: 0.2s;
+}
+.button.active .content{
+  transform: translateY(60px);
+}
+.button .content i,
+.button .content .button-text{
+  color: #fff;
+  font-size: 40px;
+  font-weight: 200;
+}
+.button .content .button-text{
+  font-size: 28px;
+  margin-left: 8px;
+}
+
+.buttonBilleterie{
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 40px;
+  width: 225px;
+  background: red;
+  border-radius: 55px;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  overflow: hidden;
+}
+.buttonBilleterie.active{
+  height: 20px;
+  width: 175px;
+}
+.buttonBilleterie::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 100%;
+  background: #df1558;
+  border-radius: 55px;
+  transition: all 6s ease-in-out;
+}
+.buttonBilleterie.active::before{
+  animation: layer 6s ease-in-out forwards;
+}
+@keyframes layer {
+  100%{
+    left: 0%;
+  }
+}
+.buttonBilleterie .content{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  transition-delay: 0.2s;
+}
+.buttonBilleterie.active .content{
+  transform: translateY(60px);
+}
+.buttonBilleterie .content i,
+.buttonBilleterie .content .button-text{
+  color: #fff;
+  font-size: 40px;
+  font-weight: 200;
+}
+.buttonBilleterie .content .button-text{
+  font-size: 28px;
+  margin-left: 8px;
+}
+
+.buttonPPE4{
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 40px;
+  width: 225px;
+  background: blue;
+  border-radius: 55px;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  overflow: hidden;
+}
+.buttonPPE4.active{
+  height: 20px;
+  width: 175px;
+}
+.buttonPPE4::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 100%;
+  background: #157adf;
+  border-radius: 55px;
+  transition: all 6s ease-in-out;
+}
+.buttonPPE4.active::before{
+  animation: layer 6s ease-in-out forwards;
+}
+@keyframes layer {
+  100%{
+    left: 0%;
+  }
+}
+.buttonPPE4 .content{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  transition-delay: 0.2s;
+}
+.buttonPPE4.active .content{
+  transform: translateY(60px);
+}
+.buttonPPE4 .content i,
+.buttonPPE4 .content .button-text{
+  color: #fff;
+  font-size: 40px;
+  font-weight: 200;
+}
+.buttonPPE4 .content .button-text{
+  font-size: 28px;
+  margin-left: 8px;
+}
+
+
+.buttonProjetPHP{
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 40px;
+  width: 225px;
+  background: blue;
+  border-radius: 55px;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  overflow: hidden;
+}
+.buttonProjetPHP.active{
+  height: 20px;
+  width: 175px;
+}
+.buttonProjetPHP::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 100%;
+  background: #157adf;
+  border-radius: 55px;
+  transition: all 6s ease-in-out;
+}
+.buttonProjetPHP.active::before{
+  animation: layer 6s ease-in-out forwards;
+}
+@keyframes layer {
+  100%{
+    left: 0%;
+  }
+}
+.buttonProjetPHP .content{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  transition-delay: 0.2s;
+}
+.buttonProjetPHP.active .content{
+  transform: translateY(60px);
+}
+.buttonProjetPHP .content i,
+.buttonProjetPHP .content .button-text{
+  color: #fff;
+  font-size: 40px;
+  font-weight: 200;
+}
+.buttonProjetPHP .content .button-text{
+  font-size: 28px;
+  margin-left: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
