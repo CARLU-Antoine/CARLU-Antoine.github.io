@@ -15,8 +15,6 @@ body{
   font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
-
-
 .wrapper {
   display: inline-flex;
   list-style: none;
@@ -81,25 +79,6 @@ body{
   background: #333333;
   color: #ffffff;
 }
-
-
-.wrapper .icon {
-  position: relative;
-  background: #ffffff;
-  border-radius: 50%;
-  margin: 15px;
-  width: 50px;
-  height: 50px;
-  font-size: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
 
 
 .wrapper .icon {
@@ -239,8 +218,6 @@ body{
 }
 
 
-
-
 .photo-project-details{
   width: 300px;
   height: 300px;
@@ -269,7 +246,10 @@ body{
   color: #1d2a42;
 }
 
-.modal-container-java {
+.modal-container-java,
+.modal-container-csharp,
+.modal-container-php,
+.modal-container-medicament  {
   visibility: hidden;
   position: fixed;
   top: 0;
@@ -278,45 +258,9 @@ body{
   transition: visibility 0.4s;
 }
 
-.modal-container-java.active-java {
-  visibility: visible;
-}
-
-.modal-container-csharp {
-  visibility: hidden;
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  transition: visibility 0.4s;
-}
-
-.modal-container-csharp.active-csharp {
-  visibility: visible;
-}
-
-.modal-container-php {
-  visibility: hidden;
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  transition: visibility 0.4s;
-}
-
-.modal-container-php.active-php {
-  visibility: visible;
-}
-
-.modal-container-medicament {
-  visibility: hidden;
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  transition: visibility 0.4s;
-}
-
+.modal-container-java.active-java,
+.modal-container-csharp.active-csharp,
+.modal-container-php.active-php,
 .modal-container-medicament.active-medicament {
   visibility: visible;
 }
@@ -331,22 +275,10 @@ body{
   background: #333333d3;
   transition: opacity 0.4s 0.2s ease-out;
 }
-.modal-container-java.active-java .overlay {
-  opacity: 1;
-  transition: opacity 0.4s ease-out;
-}
-
-.modal-container-csharp.active-csharp .overlay {
-  opacity: 1;
-  transition: opacity 0.4s ease-out;
-}
-
-.modal-container-php.active-php .overlay {
-  opacity: 1;
-  transition: opacity 0.4s ease-out;
-}
-
-.modal-container-medicament.active-medicament .overlay {
+.modal-container-java.active-java .overlay,
+.modal-container-csharp.active-csharp .overlay,
+.modal-container-php.active-php .overlay,
+.modal-container-medicament.active-medicament .overlay   {
   opacity: 1;
   transition: opacity 0.4s ease-out;
 }
@@ -381,27 +313,9 @@ body{
   font-size: 1.2em;
 }
 
-.modal-container-java.active-java .modal {
-  opacity: 1;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.4s 0.2s ease-out,
-  transform 0.4s 0.2s ease-out;
-}
-
-.modal-container-csharp.active-csharp .modal {
-  opacity: 1;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.4s 0.2s ease-out,
-  transform 0.4s 0.2s ease-out;
-}
-
-.modal-container-php.active-php .modal {
-  opacity: 1;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.4s 0.2s ease-out,
-  transform 0.4s 0.2s ease-out;
-}
-
+.modal-container-java.active-java .modal,
+.modal-container-csharp.active-csharp .modal,
+.modal-container-php.active-php .modal,
 .modal-container-medicament.active-medicament .modal {
   opacity: 1;
   transform: translate(-50%, -50%);
@@ -473,8 +387,6 @@ body{
 	font-weight: normal;
 	margin: 0;
 }
-
-
 
 .footer-distributed .footer-right{
 	float: right;
