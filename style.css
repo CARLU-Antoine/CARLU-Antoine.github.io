@@ -2,6 +2,7 @@
 body{
   background-color: whitesmoke;
   font-family: Montserrat, sans-serif;
+  color: #5b5963;
 }
 
 *{
@@ -115,27 +116,12 @@ body{
   margin-top: 30px;
 }
 
-.section-CV{
-  position: relative;
-  justify-content: center;
-  text-align: center;
-  margin-top: 125px;
-}
-
-
-.section-CV .photo-CV{
-  margin-top: 100px;
-  width: 800px;
-  height: 1100px;
-  margin-bottom: 100px;
-}
-
 .section-langages{
   color:white;
   background-color: #1d2a42;
 }
 
-.section-langages .titre-projets{
+.section-langages {
   padding-top: 100px;
 
 }
@@ -163,7 +149,6 @@ body{
 
 .section-projets{
   padding-top: 100px;
-  margin-bottom: 100px;
 }
 
 .photos-langage{
@@ -186,7 +171,14 @@ body{
 
 }
 
-.carte-all-project{
+.carte-all-project {
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.carte-langages{
   display:flex;
   justify-content: center;
   text-align:center;
@@ -199,15 +191,13 @@ body{
   font-size: 0.9em;
 }
 
-
-
 .container-projets{
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  width: 300px;
-  padding: 1%;
-  height: 450px;
+  text-align: center;
+  width: 700px;
   position: relative;
+  margin-top: 20%;
 }
 
 .container-projets:hover{
@@ -219,8 +209,9 @@ body{
 
 
 .photo-project-details{
-  width: 300px;
-  height: 300px;
+  border-radius: 20px;
+  width: 450px;
+  height: 450px;
 }
 
 
@@ -231,7 +222,7 @@ body{
   display: block;
   width: 150px;
   cursor: pointer;
-  position: absolute;
+  position: relative;
   bottom: 0;
   left: 0;
   right: 0;
@@ -249,7 +240,8 @@ body{
 .modal-container-java,
 .modal-container-csharp,
 .modal-container-php,
-.modal-container-medicament  {
+.modal-container-medicament,
+.modal-container-angular {
   visibility: hidden;
   position: fixed;
   top: 0;
@@ -261,7 +253,8 @@ body{
 .modal-container-java.active-java,
 .modal-container-csharp.active-csharp,
 .modal-container-php.active-php,
-.modal-container-medicament.active-medicament {
+.modal-container-medicament.active-medicament,
+.modal-container-angular.active-angular {
   visibility: visible;
 }
 
@@ -278,14 +271,22 @@ body{
 .modal-container-java.active-java .overlay,
 .modal-container-csharp.active-csharp .overlay,
 .modal-container-php.active-php .overlay,
-.modal-container-medicament.active-medicament .overlay   {
+.modal-container-medicament.active-medicament .overlay,
+.modal-container-angular.active-angular .overlay  {
   opacity: 1;
   transition: opacity 0.4s ease-out;
 }
 
-.titre-projets{
+.titre{
+  margin-top: 100px;
+  margin-bottom: 100px;
   font-size: 2.50em;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.texte-presentation{
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .modal {
@@ -316,7 +317,8 @@ body{
 .modal-container-java.active-java .modal,
 .modal-container-csharp.active-csharp .modal,
 .modal-container-php.active-php .modal,
-.modal-container-medicament.active-medicament .modal {
+.modal-container-medicament.active-medicament .modal,
+.modal-container-angular.active-angular .modal{
   opacity: 1;
   transform: translate(-50%, -50%);
   transition: opacity 0.4s 0.2s ease-out,
@@ -343,7 +345,6 @@ body{
   line-height: 1.4;
   margin-bottom: 5px;
 }
-
 
 
 
@@ -473,16 +474,6 @@ body{
     padding: 10%;
   }
 
-
-  .carte-all-project{
-    display:inline-block;
-    position: relative;
-    width: 500px; /* Largeur de l'élément */
-    left: 50%; /*Deplace l'élément à gauche de 50% de la largeur de l'écran */
-    transform: translateX(-50%); /* TranslateX de -50% pour centrer l'élément par rapport à la largeur de l'écran */  
-  }
-
-
   .container-projets{
     margin: 0 auto; /* Centre horizontalement l'élément en utilisant les marges gauche et droite */
     margin-top: 100px;
@@ -551,13 +542,7 @@ body{
     padding: 10%;
   }
 
-  .carte-all-project{
-    display:inline-block;
-    position: relative;
-    width: 500px; /* Largeur de l'élément */
-      left: 50%; /*Deplace l'élément à gauche de 50% de la largeur de l'écran */
-    transform: translateX(-50%); /* TranslateX de -50% pour centrer l'élément par rapport à la largeur de l'écran */  
-  }
+
 
   .container-projets{
     margin: 0 auto; /* Centre horizontalement l'élément en utilisant les marges gauche et droite */
