@@ -13,39 +13,97 @@
   <body>
     <header class="container-entete">
       <h1>Portfolio CARLU Antoine</h1>
-      <p class="titre-entete"><strong>Étudiant en Licence professionelle</strong></p>
+      <p class="titre-entete"><strong>Étudiant en M1</strong></p>
       <p>Je suis actuellement <span id="texte-presentation"></span></p>
       <ul class="wrapper">
-        <a href="https://www.linkedin.com/in/antoine-carlu-a72884182/?originalSubdomain=fr" target="_blank">
-        <li class="icon linkedin">
-        <span class="tooltip">Linkedin</span>
-        <img src="image/logo/linkedin.jpg" alt="linkedin">
-        </li>
-      </a>
       <a href="https://github.com/CARLU-Antoine" target="_blank">
         <li class="icon github">
           <span class="tooltip">Github</span>
           <img src="image/logo/GitHub.png" alt="github">
         </li>
       </a>
+      <a href="https://www.linkedin.com/in/antoine-carlu-a72884182/?originalSubdomain=fr" target="_blank">
+        <li class="icon linkedin">
+        <span class="tooltip">Linkedin</span>
+        <img src="image/logo/linkedin.jpg" alt="linkedin">
+        </li>
+      </a>
+      <a href="image/CV/CV_CARLU_Antoine.png" target="_blank">
+        <li class="icon github">
+          <span class="tooltip">CV</span>
+          <img src="image/logo/cv.jpg" alt="github">
+        </li>
+      </a>
       </ul>
     </header>
-    
-       
-    <section class="section-CV">
-      <h2 class="titre-projets">Mon CV</h2>
-        <img src="image/CV/CV_CARLU_Antoine.png" class="photo-CV" alt="CV_CARLU_Antoine">
-    </section>
-       
+
+<section class="section-projets">
+  <div class="texte-presentation">
+    <h2 class="titre">Présentation</h2>
+    <br>Je suis actuellement au <strong>Ministère des Armées</strong> en tant que <strong>data analyst .</strong></br>
+<br><strong>Développeur passionné </strong>dans le domaine du web depuis plus de 6 ans.</br>
+<br>Je conçois et réalise des macro VBA respectant le cahier des charges.</br>
+  <br>Je developpe aussi en JAVA, ce qui me permet de développer des applications mobiles android</br>
+  <br>Vous souhaitez avoir mon CV au format PDF c'est par <a  href="image/CV/CV_CARLU_Antoine.png" target="_blank">ici.</a></br>
+</div>
+</section>
+<section class="section-projets">
+  <div class="entete-projects">
+      <h2 class="titre">Mes projets</h2>
+  </div>
+  <div class="carte-all-project">
+      <div class="container-projets">
+      <div class="carte-project">
+        <h4><b>Java (Android)</b></h4>
+        <img class="photo-project-details" src="image/project/java.png" alt="java"></img>
+        <button class="modal-btn modal-trigger-java">Découvrir</button>
+      </div>
+      </div>
+
+      <div class="container-projets">
+        <div class="carte-project">
+          <h4><b>C #</b></h4>
+          <img class="photo-project-details" src="image/project/csharp.png" alt="csharp"></img>
+          <button class="modal-btn modal-trigger-csharp">Découvrir</button>
+        </div>
+        </div>
+
+        <div class="container-projets">
+      <div class="carte-project">
+        <h4><b>HTML - CSS - PHP</b></h4>
+        <img class="photo-project-details" src="image/project/php.jpg" alt="php"></img>
+        <button class="modal-btn modal-trigger-php">Découvrir</button>
+      </div>
+      </div>
+ 
+      <div class="container-projets">
+      <div class="carte-project">
+        <h4><b>Java (Android) - PHP</b></h4>
+        <img class="photo-project-details" src="image/project/java-php.png" alt="java-php"></img>
+        <button class="modal-btn modal-trigger-medicament">Découvrir</button>
+      </div>
+      </div>
+      
+      <div class="container-projets">
+        <div class="carte-project">
+          <h4><b>Angular-Ionic-TypeScript</b></h4>
+          <img class="photo-project-details" src="image/project/angular-ionic.png" alt="Angular-Ionic"></img>
+          <button class="modal-btn modal-trigger-angular">Découvrir</button>
+        </div>
+        </div>
+  </div>
+</section>
+
 <section class="section-langages">
   <div class="entete-langages">
     <h2 class="titre-projets">Présentation</h2>
 </div>
-<div class="carte-all-project">
+<div class="carte-langages">
   <div class="container-projets">
   <div class="carte-project">
 
     <h2><b>Mes langages de programmation</b></h2>
+    <a href="https://learn.microsoft.com/fr-fr/office/vba/library-reference/concepts/getting-started-with-vba-in-office" target="_blank" rel="noreferrer"><img src="image/langages/vba.png" class="photos-langage" alt="vba"></a>
     <a href="https://www.oracle.com/java/" target="_blank" rel="noreferrer"><img src="image/langages/java.svg" class="photos-langage" alt="java"></a>
     <a href="https://docs.microsoft.com/en-us/dotnet/csharp/" target="_blank" rel="noreferrer"><img src="image/langages/csharp.svg" class="photos-langage" alt="csharp"></a>
     <a href="https://www.python.org/" target="_blank" rel="noreferrer"><img src="image/langages/python.svg" class="photos-langage" alt="python"></a>
@@ -64,60 +122,6 @@
  </div>
   </div>
 </div>
-</section>
-
-<section class="section-projets">
-  <div class="entete-projects">
-      <h2 class="titre-projets">Mes projets</h2>
-  </div>
-  <div class="carte-all-project">
-      <div class="container-projets">
-      <div class="carte-project">
-        <h4><b>Java (Android)</b></h4>
-        <p>Projet Patient</p>
-        <p>Création des IHM</p>
-        <p>Création des classes</p>
-        <p>Utilisation de la classe sharedPreferences pour sauvegarder les informations en locale</p>
-        <p>Utilisation de la librairie Altbeacon pour se connecter au beacon</p>
-        <button class="modal-btn modal-trigger-java">Découvrir</button>
-      </div>
-      </div>
-
-      <div class="container-projets">
-        <div class="carte-project">
-          <h4><b>C #</b></h4>
-          <p>Projet Tholdi</p>
-          <p>Création des IHM</p>
-          <p>Création des classes</p>
-          <p>Création d'une base de donnée</p>
-          <p>Intéraction de l'utilisateur avec la base de donnée grâce aux méthodes</p>
-          <button class="modal-btn modal-trigger-csharp">Découvrir</button>
-        </div>
-        </div>
-
-        <div class="container-projets">
-      <div class="carte-project">
-        <h4><b>HTML - CSS - PHP</b></h4>
-        <p>Projet Container</p>
-        <p>Création des pages web</p>
-        <p>Utilisation de CSS et de bootstrap</p>
-        <p>Utilisation de la librairie fpdf afin de générer des pdf</p>
-        <button class="modal-btn modal-trigger-php">Découvrir</button>
-      </div>
-      </div>
- 
-      <div class="container-projets">
-      <div class="carte-project">
-        <h4><b>Java (Android) - PHP</b></h4>
-        <p>Projet Médicament</p>
-        <p>Création des IHM</p>
-        <p>Création des classes</p>
-        <p>Création d'une base de donnée</p>
-        <p>Intéraction avec la base de donnée grâce à PHP</p>
-        <button class="modal-btn modal-trigger-medicament">Découvrir</button>
-      </div>
-      </div>
-  </div>
 </section>
 
   <footer class="footer-distributed">
@@ -160,15 +164,15 @@
       class="close-modal modal-trigger-java">X</button>
       <h1>Projet Patient</h1>
       <img class="photo-project-details" src="image/project/java.png" alt="java"></img>
-      <p>Création d'une classe Sms pour envoyer des sms</p>
-      <p>Création d'une classe modal afin de permettre à l'utilisateur de modifié son nom et prénom</p>
-      <p>Création d'une classe sauvegarde afin de sauvegarder les données localement</p>
-      <p>Utilisation d'une classe ObjectSerialize pour faciliter la sauvegarder</p>
-      <p>Récupération des contacts interne du patient depuis son téléphone</p>
-      <p>Requête à l'utilisateur les permissions pour avoir des autorisations d'intéragir avec les services du téléphone</p>
-      <p>Affichage dynamique de la liste des contacts</p>
-      <p>Création d'un dropdown qui permet de faciliter la sélection du patient</p>
-      <a href="projet/Projet-Patient.rar" class="buttonDownload">Téléchargé</a>
+      <br>Création d'une classe Sms pour envoyer des sms</p>
+      <br>Création d'une classe modal afin de permettre à l'utilisateur de modifié son nom et prénom</br>
+      <br>Création d'une classe sauvegarde afin de sauvegarder les données localement</br>
+      <br>Utilisation d'une classe ObjectSerialize pour faciliter la sauvegarder</br>
+      <br>Récupération des contacts interne du patient depuis son téléphone</br>
+      <br>Requête à l'utilisateur les permissions pour avoir des autorisations d'intéragir avec les services du téléphone</br>
+      <br>Affichage dynamique de la liste des contacts</br>
+      <br>Création d'un dropdown qui permet de faciliter la sélection du patient</br>
+      <a href="projet/Projet-Patient.zip" class="buttonDownload">Téléchargé</a>
     </div>
   </div>
 
@@ -180,14 +184,14 @@
       class="close-modal modal-trigger-csharp">X</button>
       <h1>Projet Tholdi</h1>
       <img class="photo-project-details" src="image/project/csharp.png" alt="csharp"></img>
-    <p>Projet Tholdi</p>
-    <p>Vérification des informations de connexion</p>
-    <p>IHM qui permet  d'ajouter un container</p>
-    <p>IHM qui permet  de réaliser une inspection sur un container</p>
-    <p>IHM de gestion des container qui permet de supprimer ou de modifié un container</p>
-    <p>IHM de gestion des container qui permet de supprimer ou de modifié une inspection</p>
-    <p>Création de plusieurs classes afin d'intéragir avec les méthodes</p>
-    <a href="projet/PPE3.rar" class="buttonDownload">Téléchargé</a>
+    <br>Projet Tholdi</p>
+    <br>Vérification des informations de connexion</p>
+    <br>IHM qui permet  d'ajouter un container</p>
+    <br>IHM qui permet  de réaliser une inspection sur un container</p>
+    <br>IHM de gestion des container qui permet de supprimer ou de modifié un container</p>
+    <br>IHM de gestion des container qui permet de supprimer ou de modifié une inspection</p>
+    <br>Création de plusieurs classes afin d'intéragir avec les méthodes</p>
+    <a href="projet/PPE3.zip" class="buttonDownload">Téléchargé</a>
     </div>
   </div>
 
@@ -199,14 +203,14 @@
       class="close-modal modal-trigger-php">X</button>
       <h1>Projet Container</h1>
       <img class="photo-project-details" src="image/project/php.jpg" alt="php"></img>
-      <p>Possibilité de créer un compte et de se connecter au site</p>
-      <p>Liste des tarifs des containers</p>
-      <p>Création d'une page d'accueil avec les informations de l'entreprise</p>
-      <p>Possibilité de réserver un ou plusieurs container dans une seule commande</p>
-      <p>Capacité à supprimer un conteneur commandé lors de la commande</p>
-      <p>Génaration d'un devis à la fin de la commande</p>
-      <p>Page de gestion des commandes qui permet de supprimer ou de modifier des containers</p>
-      <a href="projet/PPE2.rar" class="buttonDownload">Téléchargé</a>
+      <br>Possibilité de créer un compte et de se connecter au site</br>
+      <br>Liste des tarifs des containers</p>
+      <br>Création d'une page d'accueil avec les informations de l'entreprise</br>
+      <br>Possibilité de réserver un ou plusieurs container dans une seule commande</br>
+      <br>Capacité à supprimer un conteneur commandé lors de la commande</br>
+      <br>Génaration d'un devis à la fin de la commande</p>
+      <br>Page de gestion des commandes qui permet de supprimer ou de modifier des containers</br>
+      <a href="projet/PPE2.zip" class="buttonDownload">Téléchargé</a>
     </div>
   </div>
 
@@ -218,12 +222,32 @@
       class="close-modal modal-trigger-medicament">X</button>
       <h1>Projet Medicament</h1>
       <img class="photo-project-details" src="image/project/java-php.png" alt="java-php"></img>
-      <p>Possibilité à l'utilisateur de se connecter</p>
-      <p>IHM permettant d'ajouter un médicament</p>
-      <p>IHM qui permet de voir la liste des médicaments</p>
-      <p>IHM qui permet de voir les paramètres du compte connecté</p>
-      <p>Création de fichiers PHP afin d'intéragir avec la bases de donnée</p>
-      <a href="projet/Medicament.rar" class="buttonDownload">Téléchargé</a>
+      <br>Possibilité à l'utilisateur de se connecter</br>
+      <br>IHM permettant d'ajouter un médicament</br>
+      <br>IHM qui permet de voir la liste des médicaments</br>
+      <br>IHM qui permet de voir les paramètres du compte connecté</br>
+      <br>Création de fichiers PHP afin d'intéragir avec la bases de donnée</br>
+      <a href="projet/Medicament.zip" class="buttonDownload">Téléchargé</a>
+    </div>
+  </div>
+
+  <div class="modal-container-angular">
+    <div class="overlay modal-trigger-angular"></div>
+    <div class="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="dialogDesc">
+      <button 
+      aria-label="close modal"
+      class="close-modal modal-trigger-angular">X</button>
+      <h1>Projet Angular / Ionic</h1>
+      <img class="photo-project-details" src="image/project/java-php.png" alt="java-php"></img>
+      <br>Page liste des produits</br>
+      <br>Gestion du panier</br>
+      <br>Page liste des bateaux</br>
+      <br>Page liste des restaurants</br>
+      <br>Page liste des recettes</br>
+      <br>statique et dynamique:</br>
+      <br>Gestion des données des pages statique : JSON</br>
+      <br>Gestion des données du panier : LocalStorage</br>
+      <a href="projet/Angular-Ionic.zip" class="buttonDownload">Téléchargé</a>
     </div>
   </div>
         

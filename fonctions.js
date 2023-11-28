@@ -1,6 +1,6 @@
 
 // définir le texte à écrire
-const text = "étudiant en licence Pro SARII";
+const text = "étudiant en Architecte informatique option logiciel";
 // Initialise le compteur de lettres à zéro
 let compteurLettre = 0;
 
@@ -24,12 +24,16 @@ const modalTriggersPhp = document.querySelectorAll(".modal-trigger-php");
 const modalContainerMedicament = document.querySelector(".modal-container-medicament");
 const modalTriggersMedicament = document.querySelectorAll(".modal-trigger-medicament");
 
+const modalContainerAngular = document.querySelector(".modal-container-angular");
+const modalTriggersAngular= document.querySelectorAll(".modal-trigger-angular");
+
 
 
 modalTriggersJava.forEach(trigger => trigger.addEventListener("click", montrerModalJava))
 modalTriggersCsharp.forEach(trigger => trigger.addEventListener("click", montrerModalCsharp))
 modalTriggersPhp.forEach(trigger => trigger.addEventListener("click", montrerModalPhp))
 modalTriggersMedicament.forEach(trigger => trigger.addEventListener("click", montrerModalMedicament))
+modalTriggersAngular.forEach(trigger => trigger.addEventListener("click", montrerModalAngular))
 
 function montrerModalJava(){
   modalContainerJava.classList.toggle("active-java")
@@ -46,7 +50,9 @@ function montrerModalPhp(){
 function montrerModalMedicament(){
   modalContainerMedicament.classList.toggle("active-medicament")
 }
-
+function montrerModalAngular(){
+  modalTriggersAngular.classList.toggle("active-angular")
+}
 
 // définir la fonction qui écrit le texte
 function ecrireTexte() {
@@ -72,8 +78,6 @@ function supprimerTexte() {
 
 // déclencher la boucle d'écriture et d'effacement
 ecrireTexte();
-
-
 
 
 // Définir les propriétés de transition
