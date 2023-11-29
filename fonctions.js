@@ -51,7 +51,7 @@ function montrerModalMedicament(){
   modalContainerMedicament.classList.toggle("active-medicament")
 }
 function montrerModalAngular(){
-  modalTriggersAngular.classList.toggle("active-angular")
+  modalContainerAngular.classList.toggle("active-angular")
 }
 
 // définir la fonction qui écrit le texte
