@@ -11,7 +11,6 @@ const sectionCV = document.querySelector(".section-CV");
 const sectionLangages = document.querySelector(".section-langages");
 const sectionProjets = document.querySelector(".section-projets");
 
-
 const modalContainerJava = document.querySelector(".modal-container-java");
 const modalTriggersJava = document.querySelectorAll(".modal-trigger-java");
 
@@ -26,8 +25,6 @@ const modalTriggersMedicament = document.querySelectorAll(".modal-trigger-medica
 
 const modalContainerAngular = document.querySelector(".modal-container-angular");
 const modalTriggersAngular= document.querySelectorAll(".modal-trigger-angular");
-
-
 
 modalTriggersJava.forEach(trigger => trigger.addEventListener("click", montrerModalJava))
 modalTriggersCsharp.forEach(trigger => trigger.addEventListener("click", montrerModalCsharp))
