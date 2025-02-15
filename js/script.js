@@ -1,6 +1,6 @@
 
 // définir le texte à écrire
-const text = "étudiant en Architecte informatique option logiciel";
+const text = "étudiant en Spécialise en maitres d'ouvrage SI";
 // Initialise le compteur de lettres à zéro
 let compteurLettre = 0;
 
@@ -132,22 +132,29 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   closeButton.addEventListener('click', function() {
-    modal.classList.add('fade-out'); // Ajoute la classe fade-out pour l'effet de disparition
-    modal.addEventListener('transitionend', function() {
-      modal.classList.remove('show'); // Cache complètement la modale
-      modalDetails.innerHTML = ""; // Réinitialiser le contenu
-    }, { once: true });
-  });
+    closeModal();
+});
 
-  window.addEventListener('click', function(event) {
-    if (event.target === modal) {
-      modal.classList.add('fade-out');
-      modal.addEventListener('transitionend', function() {
-        modal.classList.remove('show');
-        modalDetails.innerHTML = ""; // Réinitialiser le contenu
-      }, { once: true });
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+    window.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeModal();
+        }
+    });
+
+    function closeModal() {
+        modal.classList.add('fade-out'); // Ajoute la classe fade-out pour l'effet de disparition
+        modal.addEventListener('transitionend', function() {
+            modal.classList.remove('show'); // Cache complètement la modale
+            modalDetails.innerHTML = ""; // Réinitialiser le contenu
+        }, { once: true });
     }
-  });
+
 
   // Fonctionnalité de filtrage
   const buttons = document.querySelectorAll('.btn-filter');
