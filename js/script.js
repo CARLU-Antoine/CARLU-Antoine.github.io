@@ -130,6 +130,7 @@ document.addEventListener("DOMContentLoaded", function() {
     button.addEventListener('click', function() {
       const filter = button.classList[1] ? button.classList[1].split('-')[2] : null;
       const project = projectDetails[filter];
+      
 
       if (project) {
         modalTitle.textContent = project.title;
@@ -176,6 +177,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
   buttons.forEach(button => {
     button.addEventListener('click', () => {
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      
+      button.classList.add('active');
+
+      
+
       const filter = button.getAttribute('data-filter');
 
       // Afficher toutes les cartes si "all" est cliqué

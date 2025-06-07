@@ -7,6 +7,9 @@
   --light-bg: #f5f6fa;
   --transition: all 0.3s ease;
 }
+#texte-presentation{
+  color: aqua;
+}
 
 /* Reset et styles de base */
 * {
@@ -24,9 +27,9 @@ body {
 
 /* Header */
 .container-entete {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: var(--primary-color);
   color: white;
-  padding: 4rem 2rem;
+  padding: 3rem;
   text-align: center;
 }
 
@@ -57,8 +60,8 @@ body {
   border-radius: 50%;
   padding: 15px;
   margin: 10px;
-  width: 50px;
-  height: 50px;
+  width: 65px;
+  height: 65px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -285,15 +288,10 @@ section {
   flex-wrap: wrap;
   min-height: 80px;
   padding: 1rem;
-  background: rgba(102, 126, 234, 0.03);
   border-radius: 16px;
   transition: all 0.3s ease;
 }
 
-.carte-langages:hover .container-logos-langages {
-  background: rgba(102, 126, 234, 0.08);
-  transform: scale(1.02);
-}
 
 /* Style pour les logos dans le container */
 .container-logos-langages img,
@@ -370,8 +368,10 @@ section {
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin: 30px 0;
 }
+
+
 
 .btn-filter {
   padding: 0.8rem 1.5rem;
@@ -628,12 +628,6 @@ section {
   padding: 20px; /* Ajoute un peu de marge autour */
 }
 
-.container-projets-langages {
-  display: flex; /* Utilise flexbox */
-  flex-wrap: wrap; /* Permet aux boutons de passer à la ligne si nécessaire */
-  justify-content: center; /* Centre les boutons */
-  margin: 10px 0; /* Marge verticale entre le titre et les boutons */
-}
 
 @keyframes downloadArrow {
 	0% {
@@ -656,23 +650,3 @@ section {
 	}
 }
 
-
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .container-entete h1 {
-    font-size: 2rem;
-  }
-  
-  section {
-    padding: 2rem 1rem;
-  }
-  
-  .wrapper {
-    flex-wrap: wrap;
-  }
-  
-  .carte-all-project {
-    grid-template-columns: 1fr;
-  }
-}
