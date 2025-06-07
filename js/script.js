@@ -70,6 +70,20 @@ document.addEventListener("DOMContentLoaded", function() {
       ],
       downloadLink: "asset/projet/PPE3.zip"
     },
+    htmlcssjs: {
+      title: "Projet PDF editor",
+      image: "asset/project/pdf-editor.jpg",
+      description: [
+        "Application web développée en HTML, CSS et JavaScript",
+        "Utilisation de PDF.js pour créer, modifier et annoter un ou plusieurs fichiers PDF directement dans le navigateur",
+        "Intégration de Tesseract.js pour extraire un résumé automatique du texte contenu dans les PDF",
+        "Fonctionnalité permettant de télécharger les PDF modifiés",
+        "Interface utilisateur intuitive et responsive",
+        "Gestion dynamique du contenu PDF avec édition en temps réel",
+        "Optimisation de la reconnaissance de texte pour un résumé précis"
+      ],      
+      downloadLink: "asset/projet/pdf-editor-main.zip"
+    },
     htmlcssphp: {
       title: "Projet Container",
       image: "asset/project/php.jpg",
