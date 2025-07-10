@@ -1,6 +1,6 @@
 
 // définir le texte à écrire
-const text = "étudiant en Spécialise en maitres d'ouvrage SI";
+const text = "étudiant en architecte des systèmes d'information";
 // Initialise le compteur de lettres à zéro
 let compteurLettre = 0;
 
