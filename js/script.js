@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const projectDetails = {
     java: {
       title: "Projet Patient",
-      image: "asset/project/java.png",
+      image: "../asset/project/java.png",
       description: [
         "Création d'une classe Sms pour envoyer des sms",
         "Création d'une classe modal afin de permettre à l'utilisateur de modifier son nom et prénom",
@@ -55,11 +55,11 @@ document.addEventListener("DOMContentLoaded", function() {
         "Affichage dynamique de la liste des contacts",
         "Création d'un dropdown qui permet de faciliter la sélection du patient"
       ],
-      downloadLink: "asset/projet/Projet-Patient.zip"
+      downloadLink: "../asset/projet/Projet-Patient.zip"
     },
     csharp: {
       title: "Projet Tholdi",
-      image: "asset/project/csharp.png",
+      image: "../asset/project/csharp.png",
       description: [
         "Vérification des informations de connexion",
         "IHM qui permet d'ajouter un container",
@@ -68,11 +68,11 @@ document.addEventListener("DOMContentLoaded", function() {
         "IHM de gestion des containers qui permet de supprimer ou de modifier une inspection",
         "Création de plusieurs classes afin d'interagir avec les méthodes"
       ],
-      downloadLink: "asset/projet/PPE3.zip"
+      downloadLink: "../asset/projet/PPE3.zip"
     },
     htmlcssjs: {
       title: "Projet PDF editor",
-      image: "asset/project/pdf-editor.jpg",
+      image: "../asset/project/pdf-editor.jpg",
       description: [
         "Application web développée en HTML, CSS et JavaScript",
         "Utilisation de PDF.js pour créer, modifier et annoter un ou plusieurs fichiers PDF directement dans le navigateur",
@@ -82,11 +82,11 @@ document.addEventListener("DOMContentLoaded", function() {
         "Gestion dynamique du contenu PDF avec édition en temps réel",
         "Optimisation de la reconnaissance de texte pour un résumé précis"
       ],      
-      downloadLink: "asset/projet/pdf-editor-main.zip"
+      downloadLink: "../asset/projet/pdf-editor-main.zip"
     },
     htmlcssphp: {
       title: "Projet Container",
-      image: "asset/project/php.jpg",
+      image: "../asset/project/php.jpg",
       description: [
         "Possibilité de créer un compte et de se connecter au site",
         "Liste des tarifs des containers",
@@ -96,11 +96,11 @@ document.addEventListener("DOMContentLoaded", function() {
         "Génération d'un devis à la fin de la commande",
         "Page de gestion des commandes qui permet de supprimer ou de modifier des containers"
       ],
-      downloadLink: "asset/projet/PPE2.zip"
+      downloadLink: "../asset/projet/PPE2.zip"
     },
     javaphp: {
       title: "Projet Medicament",
-      image: "asset/project/java-php.png",
+      image: "../asset/project/java-php.png",
       description: [
         "Possibilité à l'utilisateur de se connecter",
         "IHM permettant d'ajouter un médicament",
@@ -108,11 +108,11 @@ document.addEventListener("DOMContentLoaded", function() {
         "IHM qui permet de voir les paramètres du compte connecté",
         "Création de fichiers PHP afin d'interagir avec la base de données"
       ],
-      downloadLink: "asset/projet/Medicament.zip"
+      downloadLink: "../asset/projet/Medicament.zip"
     },
     angular: {
       title: "Projet Angular / Ionic",
-      image: "asset/project/angular-ionic.png",
+      image: "../asset/project/angular-ionic.png",
       description: [
         "Page liste des produits",
         "Gestion du panier",
@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function() {
         "Gestion des données des pages statiques : JSON",
         "Gestion des données du panier : LocalStorage"
       ],
-      downloadLink: "asset/projet/Angular-Ionic.zip"
+      downloadLink: "../asset/projet/Angular-Ionic.zip"
     }
   };
 

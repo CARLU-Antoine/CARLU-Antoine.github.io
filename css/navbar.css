@@ -1,0 +1,27 @@
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem;
+  color: white;
+  background: var(--primary-color);
+  z-index: 1000;
+  backdrop-filter: blur(10px); 
+}
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: var(--transition);
+  white-space: nowrap;
+}

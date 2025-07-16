@@ -1,0 +1,139 @@
+/* Langages de programmation */
+.carte-langages h3 {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.carte-langages h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+.container-cartes-langages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.carte-langages {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 24px;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.08),
+      0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.carte-langages::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.carte-langages:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.12),
+      0 8px 16px rgba(0, 0, 0, 0.08);
+  border-color: rgba(102, 126, 234, 0.2);
+}
+
+.carte-langages:hover::before {
+  opacity: 1;
+}
+
+.carte-langages:hover h3 {
+  color: #667eea;
+  transform: translateY(-2px);
+}
+
+.container-logos-langages {
+  margin: 2rem 0 1.5rem 0;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 80px;
+  padding: 1rem;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+
+/* Style pour les logos dans le container */
+.container-logos-langages img,
+.container-logos-langages svg,
+.container-logos-langages .logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+}
+
+.container-logos-langages img:hover,
+.container-logos-langages svg:hover,
+.container-logos-langages .logo:hover {
+  transform: scale(1.15) rotate(5deg);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+}
+
+.carte-langages[class*="frontend"] h3::after,
+.carte-langages[class*="backend"] h3::after,
+.carte-langages[class*="mobile"] h3::after,
+.carte-langages[class*="database"] h3::after {
+  background: var(--accent-color, linear-gradient(135deg, #667eea 0%, #764ba2 100%));
+}
+
+/* Animation d'apparition */
+.carte-langages {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Container pour chaque section de langages */
+.section-langages-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.photos-langage {
+  width: 70px;
+  height: 70px;
+  transition: var(--transition);
+  filter: grayscale(20%);
+}
+
+.photos-langage:hover {
+  transform: scale(1.15) rotate(5deg);
+  filter: grayscale(0%);
+}
