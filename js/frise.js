@@ -2,7 +2,7 @@ const containerTimeLineExperiencesProfesionnelles = document.querySelector('#con
 
 const timelineData = {
     armées: {
-        logo: '../asset/entreprises/ministere-des-armées.png',
+        logo: 'asset/entreprises/ministere-des-armées.png',
         date: '2023 - 2025',
         title: 'Apprentis développeur fullstack',
         subtitle: 'Ministère des Armées',
@@ -14,7 +14,7 @@ const timelineData = {
         skills: ['HTML / CSS / JavaScript','Django','Node.js','Python', 'PowerShell / Bash', 'VBA / VBS'],
         link: '#'
     },SaintMaurdesFossés: {
-        logo: '../asset/entreprises/Saint-Maur-des-Fossés.png',
+        logo: 'asset/entreprises/Saint-Maur-des-Fossés.png',
         date: '2023-2023',
         title: 'Stage développeur VBA',
         subtitle: 'Mairie de Saint Maur des Fossés',
@@ -25,7 +25,7 @@ const timelineData = {
         skills: ['Excel','VBA'],
     },
     coachinternet: {
-        logo: '../asset/entreprises/coachinternet.png',
+        logo: 'asset/entreprises/coachinternet.png',
         date: '2022-2022',
         title: 'Stage développeur frontend',
         subtitle: 'Coachinternet',
@@ -36,7 +36,7 @@ const timelineData = {
         skills: ['HTML / CSS / JS','Wordpress'],
     },
     rte: {
-        logo: '../asset/entreprises/rte.png',
+        logo: 'asset/entreprises/rte.png',
         date: '2019-2020',
         title: 'Stage technicien informatique',
         subtitle: 'RTE',
