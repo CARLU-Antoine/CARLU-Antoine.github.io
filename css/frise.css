@@ -1,7 +1,5 @@
 .timeline {
   position: relative;
-  width: min(80%, 90%);
-  margin: 0 auto;
 }
 .timeline::before {
     content: '';
