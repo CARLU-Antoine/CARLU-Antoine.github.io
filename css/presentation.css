@@ -1,6 +1,6 @@
 .container-presentation {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   place-items: center;
   gap: 1rem;
   padding: 1rem;
@@ -8,7 +8,7 @@
 
 .container-presentation-texte{
     text-align: left;
-    max-width: 500px;
+    width: 45vh;
 }
 
 .container-presentation p {
