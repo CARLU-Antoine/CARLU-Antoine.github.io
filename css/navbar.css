@@ -19,7 +19,6 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1200px;
 }
 
 .nav-links {
@@ -34,6 +33,7 @@
   color: white;
   text-decoration: none;
   font-weight: bold;
+  font-size: 1.2em;
   transition: var(--transition);
   white-space: nowrap;
 }
@@ -41,7 +41,6 @@
 
 .burger {
   display: none;
-  font-size: 1.5rem;
   background: none;
   border: none;
   color: white;

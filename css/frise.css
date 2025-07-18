@@ -14,6 +14,20 @@
     border-radius: 2px;
 }
 
+.timeline::after {
+  content: '';
+  position: absolute;
+  left: 6.5vh;
+  top: 0;
+  bottom: 0;
+  width: 5vh;
+  height: 5vh;
+  background-color: #4facfe;
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #4facfe;
+}
+
 .timeline-item {
     position: relative;
     opacity: 0;
