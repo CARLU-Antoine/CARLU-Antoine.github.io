@@ -7,8 +7,12 @@
 }
 
 .container-presentation-texte{
-    text-align: left;
-    width: 45vh;
+    text-align: justify;
+}
+
+
+.container-presentation-texte ul {
+  padding-left: 1em;
 }
 
 .container-presentation p {

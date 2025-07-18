@@ -1,4 +1,4 @@
-const containerTimeLineExperiencesProfesionnelles = document.querySelector('#container-timeline-experiences-profesionnelle');
+const containerTimeLineExperiencesProfessionnelles = document.querySelector('#container-timeline-experiences-professionnelle');
 
 const timelineData = {
     armées: {
@@ -51,15 +51,15 @@ const timelineData = {
 
 
 function afficherTimeline() {
-    // Vide le container avant d'ajouter les éléments
-    containerTimeLineExperiencesProfesionnelles.innerHTML = '';
 
-    // Parcours tous les événements dans timelineData
+    containerTimeLineExperiencesProfessionnelles.innerHTML = '';
+
+  
     for (const key in timelineData) {
         if (timelineData.hasOwnProperty(key)) {
             const event = timelineData[key];
 
-            containerTimeLineExperiencesProfesionnelles.insertAdjacentHTML('beforeend', `
+            containerTimeLineExperiencesProfessionnelles.insertAdjacentHTML('beforeend', `
             <div class="timeline-item">
                 <div class="timeline-logo">
                 <img src="${event.logo}" alt="Logo">
