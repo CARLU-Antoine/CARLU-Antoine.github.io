@@ -4,8 +4,8 @@
   grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-items: center; 
-  gap: 2rem; 
-  padding: 3rem;
+  gap: 1rem; 
+  padding: 5rem;
   background: var(--primary-color);
   color: white;
 }
