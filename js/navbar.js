@@ -1,41 +1,102 @@
-const linkAccueil = document.querySelector('#link-accueil a');
-const linkPresentation = document.querySelector('#link-presentation a');
-const linkLangages = document.querySelector('#link-langages-programmation a');
-const linkProjets = document.querySelector('#link-projets a');
+const linkAccueil = document.querySelector('#link-accueil');
+const linkPresentation = document.querySelector('#link-presentation');
+const linkExperiences = document.querySelector('#link-experiences');
+const linkLangages = document.querySelector('#link-langages-programmation');
+const linkProjets = document.querySelector('#link-projets');
 
 const containerEntete = document.querySelector('.container-entete');
 const sectionPresentation = document.querySelector('#section-presentation');
+const containerExperiences = document.querySelector('#container-mes-experiences-professionnelles');
 const sectionLangage = document.querySelector('.section-langages');
 const sectionProjets = document.querySelector('#section-projets');
-
 
 const burger = document.querySelector('.burger');
 const navLinks = document.querySelector('.nav-links');
 
 burger.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
+  navLinks.classList.toggle('show');
 });
 
-function scrollToSection(section) {
-  section.scrollIntoView({ behavior: 'smooth' });
+function setActiveLink(activeLink) {
+  document.querySelectorAll('.navbar li').forEach(link => {
+    link.classList.remove('active');
+  });
+  activeLink.classList.add('active');
 }
 
+// Tableau des sections et liens correspondants
+const sections = [
+  { element: containerEntete, link: linkAccueil },
+  { element: sectionPresentation, link: linkPresentation },
+  { element: containerExperiences, link: linkExperiences },
+  { element: sectionLangage, link: linkLangages },
+  { element: sectionProjets, link: linkProjets }
+];
+
+// IntersectionObserver pour détecter la section visible
+let observer;
+let isAutoScrolling = false; // flag pour désactiver l’observer pendant scroll programmé
+
+function createObserver() {
+  const options = {
+    root: null, // viewport
+    rootMargin: '0px 0px -50% 0px', // déclenchement quand moitié section visible
+    threshold: 0
+  };
+
+  observer = new IntersectionObserver((entries) => {
+    if (isAutoScrolling) return; // Ignore pendant scroll programmé
+
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Trouver la section correspondante
+        const section = sections.find(s => s.element === entry.target);
+        if (section) {
+          setActiveLink(section.link);
+        }
+      }
+    });
+  }, options);
+
+  // Observer toutes les sections
+  sections.forEach(({ element }) => observer.observe(element));
+}
+
+createObserver();
+
+function scrollToSection(section, link) {
+  isAutoScrolling = true;
+  // Désactive l’observer pendant scroll
+  observer.disconnect();
+
+  section.scrollIntoView({ behavior: 'smooth' });
+
+  // Réactive l’observer après la fin du scroll (environ 700ms)
+  setTimeout(() => {
+    isAutoScrolling = false;
+    setActiveLink(link);
+    createObserver();
+  }, 100);
+}
+
+// Gestion des clics
 linkAccueil.addEventListener('click', (e) => {
   e.preventDefault();
-  scrollToSection(containerEntete);
+  scrollToSection(containerEntete, linkAccueil);
 });
-
 linkPresentation.addEventListener('click', (e) => {
   e.preventDefault();
-  scrollToSection(sectionPresentation);
+  scrollToSection(sectionPresentation, linkPresentation);
 });
-
+linkExperiences.addEventListener('click', (e) => {
+  e.preventDefault();
+  scrollToSection(containerExperiences, linkExperiences);
+});
 linkLangages.addEventListener('click', (e) => {
   e.preventDefault();
-  scrollToSection(sectionLangage);
+  scrollToSection(sectionLangage, linkLangages);
 });
-
 linkProjets.addEventListener('click', (e) => {
   e.preventDefault();
-  scrollToSection(sectionProjets);
+  scrollToSection(sectionProjets, linkProjets);
 });
