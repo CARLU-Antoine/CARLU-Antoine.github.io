@@ -1,19 +1,7 @@
 const containerTimeLineExperiencesProfessionnelles = document.querySelector('#container-timeline-experiences-professionnelle');
 
 const timelineData = {
-    armées: {
-        logo: 'asset/entreprises/ministere-des-armées.png',
-        date: '2023 - 2025',
-        title: 'Apprentis développeur fullstack',
-        subtitle: 'Ministère des Armées',
-        description: [
-            'Recueil du besoin des utilisateurs',
-            'Réalisation de projets informatique en autonomie pour la partie frondend et backend',
-            'Déploiements des solutions'
-        ],
-        skills: ['HTML / CSS / JavaScript','Django','Node.js','Python', 'PowerShell / Bash', 'VBA / VBS'],
-        link: '#'
-    },SaintMaurdesFossés: {
+    SaintMaurdesFossés: {
         logo: 'asset/entreprises/Saint-Maur-des-Fossés.png',
         date: '2023-2023',
         title: 'Stage développeur VBA',
