@@ -1,34 +1,33 @@
-
-// définir le texte à écrire
 const text = "étudiant en architecte des systèmes d'information";
-// Initialise le compteur de lettres à zéro
 let compteurLettre = 0;
+let isDeleting = false;
 
-// récupérer l'élément HTML où le texte sera affiché
 const textePresentation = document.getElementById("texte-presentation");
 
-
-// définir la fonction qui écrit le texte
-function ecrireTexte() {
-  if (compteurLettre < text.length) {
-    textePresentation.innerHTML += text.charAt(compteurLettre);
+function typeEffect() {
+  if (!isDeleting) {
+    // Écriture
+    textePresentation.textContent = text.slice(0, compteurLettre);
     compteurLettre++;
-    setTimeout(ecrireTexte, 100);
-  } else {
-    setTimeout(supprimerTexte, 2000);
-  }
-}
 
-// définir la fonction qui efface le texte
-function supprimerTexte() {
-  if (compteurLettre > 0) {
-    textePresentation.innerHTML = textePresentation.innerHTML.slice(0, -1);
+    if (compteurLettre > text.length) {
+      isDeleting = true;
+      setTimeout(typeEffect, 1500); // pause avant suppression
+      return;
+    }
+  } else {
+    // Suppression
+    textePresentation.textContent = text.slice(0, compteurLettre);
     compteurLettre--;
-    setTimeout(supprimerTexte, 100);
-  } else {
-    setTimeout(ecrireTexte, 2000);
+
+    if (compteurLettre < 0) {
+      isDeleting = false;
+      compteurLettre = 0;
+    }
   }
+
+  const speed = isDeleting ? 60 : 100; // vitesse différente écriture / suppression
+  setTimeout(typeEffect, speed);
 }
 
-// déclencher la boucle d'écriture et d'effacement
-ecrireTexte();
+typeEffect();
