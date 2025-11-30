@@ -36,6 +36,23 @@ const projectsByLanguage = {
       projetLink: "https://github.com/CARLU-Antoine/EmailReaderBackend"
     }
   ],
+    dotnet: [
+    {
+      title: "Projet 3D-personnalisation",
+      images: [
+        { src: "asset/frameworks/react.svg", title: "Technologie" },
+        { src: "asset/project/3D-personnalisation/application.png", title: "Vue de l'application" }
+      ],
+      technologies: [
+        { name: "React", color: "#61DAFB" },
+        { name: "TypeScript", color: "#3178C6" },
+        { name: "Vite", color: "#646CFF" },
+        { name: "Three.js", color: "#000000" }
+      ],
+      description: `Projet 3D-personnalisation est une application permettant d'avoir une vue d'un modèle 3D en partant d'un fichier avec l'extension .glb permettant de modifier la couleur d'une partie du modèle.`,
+      projetLink: "https://github.com/CARLU-Antoine/3D-personnalisation"
+    }
+  ],
   java: [
     {
       title: "Projet Patient",
