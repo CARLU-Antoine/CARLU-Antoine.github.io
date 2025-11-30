@@ -36,7 +36,7 @@ const projectsByLanguage = {
       projetLink: "https://github.com/CARLU-Antoine/EmailReaderBackend"
     }
   ],
-    dotnet: [
+    react: [
     {
       title: "Projet 3D-personnalisation",
       images: [
