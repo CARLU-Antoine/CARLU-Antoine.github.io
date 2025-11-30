@@ -221,7 +221,7 @@ for (const language in projectsByLanguage) {
           } else {
               document.exitFullscreen();
               sliderWrapper.classList.remove('fullscreen-active');
-              sliderWrapper.style.height = '500px';
+              sliderWrapper.style.height = '40vh';
           }
         };
 
@@ -229,7 +229,7 @@ for (const language in projectsByLanguage) {
           const sliderWrapper = sliderContainer.querySelector('.slider-wrapper');
           if (!document.fullscreenElement) {
             sliderWrapper.classList.remove('fullscreen-active');
-            sliderWrapper.style.height = '500px';
+            sliderWrapper.style.height = '40vh';
           }
         });
 
