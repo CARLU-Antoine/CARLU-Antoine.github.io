@@ -1,0 +1,29 @@
+/* Footer */
+.footer-distributed {
+  background: var(--primary-color);
+  color: white;
+  padding: 3rem 2rem;
+  margin-top: 4rem;
+}
+
+.footer-left {
+  text-align: center;
+}
+
+.footer-left h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.footer-left span {
+  color: var(--secondary-color);
+}
+
+.footer-nom {
+  margin: 1rem 0;
+}
+
+.footer-informations {
+  margin: 0.5rem 0;
+  color: #bbb;
+}

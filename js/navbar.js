@@ -24,7 +24,7 @@ function setActiveLink(activeLink) {
   activeLink.classList.add('active');
 }
 
-// Tableau des sections et liens correspondants
+
 const sections = [
   { element: containerEntete, link: linkAccueil },
   { element: sectionPresentation, link: linkPresentation },
@@ -33,23 +33,23 @@ const sections = [
   { element: sectionProjets, link: linkProjets }
 ];
 
-// IntersectionObserver pour détecter la section visible
+
+
 let observer;
-let isAutoScrolling = false; // flag pour désactiver l’observer pendant scroll programmé
+let isAutoScrolling = false;
 
 function createObserver() {
   const options = {
-    root: null, // viewport
-    rootMargin: '0px 0px -50% 0px', // déclenchement quand moitié section visible
+    root: null,
+    rootMargin: '0px 0px -50% 0px',
     threshold: 0
   };
 
   observer = new IntersectionObserver((entries) => {
-    if (isAutoScrolling) return; // Ignore pendant scroll programmé
+    if (isAutoScrolling) return;
 
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Trouver la section correspondante
         const section = sections.find(s => s.element === entry.target);
         if (section) {
           setActiveLink(section.link);
@@ -58,20 +58,18 @@ function createObserver() {
     });
   }, options);
 
-  // Observer toutes les sections
   sections.forEach(({ element }) => observer.observe(element));
 }
 
 createObserver();
 
+
 function scrollToSection(section, link) {
   isAutoScrolling = true;
-  // Désactive l’observer pendant scroll
   observer.disconnect();
 
   section.scrollIntoView({ behavior: 'smooth' });
 
-  // Réactive l’observer après la fin du scroll (environ 700ms)
   setTimeout(() => {
     isAutoScrolling = false;
     setActiveLink(link);

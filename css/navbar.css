@@ -74,7 +74,8 @@
   color: var(--secondary-color) !important;
 }
 
-@media (max-width: 768px) {
+
+@media (max-width: 950px) {
   .burger {
     display: block;
   }

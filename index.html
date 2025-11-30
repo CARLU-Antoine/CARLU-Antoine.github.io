@@ -15,6 +15,8 @@
   <link href="css/frise.css" rel="stylesheet">
   <link href="css/langages-programmation.css" rel="stylesheet">
   <link href="css/projets.css" rel="stylesheet">
+  <link href="css/slider.css" rel="stylesheet">
+  <link href="css/footer.css" rel="stylesheet">
 </head>
 <body>
   <nav class="navbar">
@@ -34,8 +36,12 @@
     <div class="container-texte-entete">
         <h1>Portfolio CARLU Antoine</h1>
         <p class="titre-entete"><strong>Étudiant en M2</strong></p>
-        <p>Je suis actuellement <span id="texte-presentation"></span></p>
-    
+       
+      <div class="typing-container">
+      <p>Je suis actuellement <span id="texte-presentation"></span></p>
+      <span class="cursor"></span>
+      </div>
+
         <ul class="wrapper">
           <li class="icon github">
             <a href="https://github.com/CARLU-Antoine" target="_blank" aria-label="Visitez mon GitHub">
@@ -153,6 +159,8 @@
         <h2>Mes projets</h2>
         <div class="container-projets-langages">
             <button class="btn-filter" data-filter="all">Tous</button>
+            <button class="btn-filter" data-filter="symfonyreact">symfony-react</button>
+            <button class="btn-filter" data-filter="dotnet">Dotnet</button>
             <button class="btn-filter" data-filter="java">Java</button>
             <button class="btn-filter" data-filter="csharp">C#</button>
             <button class="btn-filter" data-filter="htmlcssjs">HTML - CSS - JS</button>
@@ -162,81 +170,8 @@
         </div>
     </div>    
       <div class="carte-all-project">
-        <div class="container-projets" data-lang="java">
-          <div class="carte-project">
-            <h4><b>Java (Android)</b></h4>
-            <img class="photo-project-details" src="asset/project/java.png" alt="Java">
-            <div>
-              <button class="modal-btn modal-trigger-java">Découvrir</button>
-            </div>
-
-          </div>
-        </div>
         
-        <div class="container-projets" data-lang="csharp">
-          <div class="carte-project">
-            <h4><b>C#</b></h4>
-            <img class="photo-project-details" src="asset/project/csharp.png" alt="C#">
-            <div>
-              <button class="modal-btn modal-trigger-csharp">Découvrir</button>
-            </div>
-
-          </div>
-        </div>
-        
-        <div class="container-projets" data-lang="htmlcssjs">
-        <div class="carte-project">
-          <h4><b>HTML - CSS - JS</b></h4>
-          <img class="photo-project-details" src="asset/project/pdf-editor.jpg" alt="pdf-editor">
-          <div>
-            <button class="modal-btn modal-trigger-htmlcssjs">Découvrir</button>
-          </div>
-        </div>
-
-        </div>
-        <div class="container-projets" data-lang="htmlcssphp">
-          <div class="carte-project">
-            <h4><b>HTML - CSS - PHP</b></h4>
-            <img class="photo-project-details" src="asset/project/php.jpg" alt="PHP">
-            <div>
-              <button class="modal-btn modal-trigger-htmlcssphp">Découvrir</button>
-            </div>
-
-          </div>
-        </div>
-      
-        <div class="container-projets" data-lang="javaphp">
-          <div class="carte-project">
-            <h4><b>Java (Android) - PHP</b></h4>
-            <img class="photo-project-details" src="asset/project/java-php.png" alt="Java-PHP">
-            <div>
-              <button class="modal-btn modal-trigger-javaphp">Découvrir</button>
-            </div>
-
-          </div>
-        </div>
-      
-        <div class="container-projets" data-lang="angular">
-          <div class="carte-project">
-            <h4><b>Angular-Ionic-TypeScript</b></h4>
-            <img class="photo-project-details" src="asset/project/angular-ionic.png" alt="Angular-Ionic">
-            <div>
-              <button class="modal-btn modal-trigger-angular">Découvrir</button>
-            </div>
-          </div>
-        </div>
       </div>
-    </section>
-    
-    <section class="section-modal">
-      <div id="modal" class="modal">
-        <div class="modal-content">
-          <span class="close-button">&times;</span>
-          <h2 class="modal-title"></h2> 
-          <img class="modal-image" src="" alt="Image-projet">
-          <div class="modal-details"></div>
-        </div>
-      </div>      
     </section>
   </main>
 

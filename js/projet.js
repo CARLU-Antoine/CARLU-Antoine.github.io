@@ -1,171 +1,346 @@
-document.addEventListener("DOMContentLoaded", function() {
-  const modalButtons = document.querySelectorAll('.modal-btn');
-  const modal = document.getElementById('modal');
-  const closeButton = document.querySelector('.close-button');
-  const modalDetails = document.querySelector('.modal-details');
-  const modalTitle = document.querySelector('.modal-title');
-  const modalImage = document.querySelector('.modal-image');
+const containerAllCarteProjets = document.querySelector(".carte-all-project");
 
-  const projectDetails = {
-    java: {
+
+const projectsByLanguage = {
+  symfonyreact: [
+    {
+      title: "Projet Stats GitHub",
+      technologies: [
+        { name: "Symfony", color: "#FF6F61" },
+        { name: "React", color: "#61DAFB" },
+        { name: "API GitHub", color: "#24292F" }
+      ],
+      images: [
+        { src: "asset/project/stats-github/connexion.png", title: "Page de connexion" },
+        { src: "asset/project/stats-github/liste-projet.png", title: "Liste des projets" },
+        { src: "asset/project/stats-github/dashboard.png", title: "Dashboard" },
+        { src: "asset/project/stats-github/filtrer-par-projet.png", title: "Filtrage des projets via lineChart" }
+      ],
+      description: "Application web moderne avec Symfony et React permettant de visualiser les statistiques GitHub (vues, clones, dépôts) grâce à des graphiques interactifs.",
+      projetLink: "https://github.com/CARLU-Antoine/Stats-github"
+    }
+  ],
+  dotnet: [
+    {
+      title: "Projet EmailReaderBackend",
+      images: [
+        { src: "asset/project/csharp.png", title: "Interface principale" }
+      ],
+      technologies: [
+        { name: "C#", color: "#68217A" },
+        { name: "Microsoft Graph API", color: "#0078D4" },
+        { name: "MSAL", color: "#FFB900" }
+      ],
+      description: `EmailReaderBackend est une application backend développée en C# utilisant Microsoft Graph API pour récupérer les emails d'un compte utilisateur Microsoft. 
+        Ce projet permet de s'authentifier via OAuth2.0 et de récupérer tous les emails d'une boîte de réception sans limite de 1000 emails.`,
+      projetLink: "https://github.com/CARLU-Antoine/EmailReaderBackend"
+    }
+  ],
+  java: [
+    {
       title: "Projet Patient",
-      image: "asset/project/java.png",
-      description: [
-        "Création d'une classe Sms pour envoyer des sms",
-        "Création d'une classe modal afin de permettre à l'utilisateur de modifier son nom et prénom",
-        "Création d'une classe sauvegarde afin de sauvegarder les données localement",
-        "Utilisation d'une classe ObjectSerialize pour faciliter la sauvegarde",
-        "Récupération des contacts internes du patient depuis son téléphone",
-        "Requête à l'utilisateur les permissions pour avoir des autorisations d'interagir avec les services du téléphone",
-        "Affichage dynamique de la liste des contacts",
-        "Création d'un dropdown qui permet de faciliter la sélection du patient"
+      images: [
+        { src: "asset/project/java.png", title: "Interface principale" }
       ],
-      downloadLink: "asset/projet/Projet-Patient.zip"
-    },
-    csharp: {
+      technologies: [
+        { name: "Java", color: "#f89820" },
+        { name: "PHP", color: "#777BB4" },
+        { name: "MySQL", color: "#4479A1" }
+      ],
+      description: "Application Java de gestion des patients, avec interface pour envoyer des SMS, modifier les informations et gérer les contacts internes.",
+      projetLink: "https://github.com/CARLU-Antoine/Projet-Patient"
+    }
+  ],
+  csharp: [
+    {
       title: "Projet Tholdi",
-      image: "asset/project/csharp.png",
-      description: [
-        "Vérification des informations de connexion",
-        "IHM qui permet d'ajouter un container",
-        "IHM qui permet de réaliser une inspection sur un container",
-        "IHM de gestion des containers qui permet de supprimer ou de modifier un container",
-        "IHM de gestion des containers qui permet de supprimer ou de modifier une inspection",
-        "Création de plusieurs classes afin d'interagir avec les méthodes"
+      images: [
+        { src: "asset/project/csharp.png", title: "Gestion des containers" }
       ],
-      downloadLink: "asset/projet/PPE3.zip"
-    },
-    htmlcssjs: {
+      technologies: [
+        { name: "C#", color: "#68217A" },
+        { name: "PHP", color: "#777BB4" },
+        { name: "MySQL", color: "#4479A1" }
+      ],
+      description: "Application C# pour la gestion des containers et des inspections avec interfaces interactives et vérification des informations.",
+      projetLink: "https://github.com/CARLU-Antoine/PPE3"
+    }
+  ],
+  htmlcssjs: [
+    {
       title: "Projet PDF editor",
-      image: "asset/project/pdf-editor.jpg",
-      description: [
-        "Application web développée en HTML, CSS et JavaScript",
-        "Utilisation de PDF.js pour créer, modifier et annoter un ou plusieurs fichiers PDF directement dans le navigateur",
-        "Intégration de Tesseract.js pour extraire un résumé automatique du texte contenu dans les PDF",
-        "Fonctionnalité permettant de télécharger les PDF modifiés",
-        "Interface utilisateur intuitive et responsive",
-        "Gestion dynamique du contenu PDF avec édition en temps réel",
-        "Optimisation de la reconnaissance de texte pour un résumé précis"
-      ],      
-      downloadLink: "asset/projet/pdf-editor-main.zip"
-    },
-    htmlcssphp: {
+      images: [
+        { src: "asset/project/pdf-editor.jpg", title: "Éditeur PDF" }
+      ],
+      technologies: [
+        { name: "HTML", color: "#E34F26" },
+        { name: "CSS", color: "#1572B6" },
+        { name: "JavaScript", color: "#F7DF1E" }
+      ],
+      description: "Éditeur PDF en ligne développé avec HTML, CSS et JavaScript, permettant de créer, modifier et annoter des fichiers PDF directement dans le navigateur.",
+      projetLink: "https://github.com/CARLU-Antoine/pdf-editor"
+    }
+  ],
+  htmlcssphp: [
+    {
       title: "Projet Container",
-      image: "asset/project/php.jpg",
-      description: [
-        "Possibilité de créer un compte et de se connecter au site",
-        "Liste des tarifs des containers",
-        "Création d'une page d'accueil avec les informations de l'entreprise",
-        "Possibilité de réserver un ou plusieurs containers dans une seule commande",
-        "Capacité à supprimer un conteneur commandé lors de la commande",
-        "Génération d'un devis à la fin de la commande",
-        "Page de gestion des commandes qui permet de supprimer ou de modifier des containers"
+      images: [
+        { src: "asset/project/php.jpg", title: "Interface de réservation" }
       ],
-      downloadLink: "asset/projet/PPE2.zip"
-    },
-    javaphp: {
+      technologies: [
+        { name: "HTML", color: "#E34F26" },
+        { name: "CSS", color: "#1572B6" },
+        { name: "PHP", color: "#777BB4" },
+        { name: "MySQL", color: "#4479A1" }
+      ],
+      description: "Application web en PHP pour gérer la réservation, la facturation et la gestion des containers, avec création de compte et interface client.",
+      projetLink: "https://github.com/CARLU-Antoine/PPE2"
+    }
+  ],
+  javaphp: [
+    {
       title: "Projet Medicament",
-      image: "asset/project/java-php.png",
-      description: [
-        "Possibilité à l'utilisateur de se connecter",
-        "IHM permettant d'ajouter un médicament",
-        "IHM qui permet de voir la liste des médicaments",
-        "IHM qui permet de voir les paramètres du compte connecté",
-        "Création de fichiers PHP afin d'interagir avec la base de données"
+      images: [
+        { src: "asset/project/java-php.png", title: "Gestion des médicaments" }
       ],
-      downloadLink: "asset/projet/Medicament.zip"
-    },
-    angular: {
+      technologies: [
+        { name: "Java", color: "#f89820" },
+        { name: "PHP", color: "#777BB4" },
+        { name: "MySQL", color: "#4479A1" }
+      ],
+      description: "Application Java/PHP pour la gestion des médicaments, avec interface pour ajouter, consulter et modifier les informations des médicaments.",
+      projetLink: "https://github.com/CARLU-Antoine/Medicament"
+    }
+  ],
+  angular: [
+    {
       title: "Projet Angular / Ionic",
-      image: "asset/project/angular-ionic.png",
-      description: [
-        "Page liste des produits",
-        "Gestion du panier",
-        "Page liste des bateaux",
-        "Page liste des restaurants",
-        "Page liste des recettes",
-        "Gestion des données des pages statiques : JSON",
-        "Gestion des données du panier : LocalStorage"
+      images: [
+        { src: "asset/project/angular-ionic.png", title: "Interface mobile" }
       ],
-      downloadLink: "asset/projet/Angular-Ionic.zip"
+      technologies: [
+        { name: "Angular", color: "#DD0031" },
+        { name: "Ionic", color: "#3781C2" },
+        { name: "TypeScript", color: "#3178C6" },
+        { name: "JSON", color: "#292929" },
+        { name: "LocalStorage", color: "#FF9900" }
+      ],
+      description: "Application mobile Angular/Ionic pour la gestion de produits, panier et listes diverses, avec données stockées localement via JSON et LocalStorage.",
+      projetLink: "https://github.com/CARLU-Antoine/RecetteVaultFront"
     }
-  };
+  ]
+};
 
-  modalButtons.forEach(button => {
-    button.addEventListener('click', function() {
-      const filter = button.classList[1] ? button.classList[1].split('-')[2] : null;
-      const project = projectDetails[filter];
-      
+let sliderIndex = 0;
+let currentSlides = {};
 
-      if (project) {
-        modalTitle.textContent = project.title;
-        modalImage.src = project.image;
-        modalDetails.innerHTML = project.description.map(item => `<p>${item}</p>`).join('');
-        modalDetails.innerHTML += `<a href="${project.downloadLink}" class="buttonDownload">Télécharger</a>`;
-        
-        modal.classList.add('show'); // Ajoute la classe show pour l'affichage
-        modal.classList.remove('fade-out'); // Supprime fade-out si présent
-      } else {
-        modalDetails.textContent = "Détails non disponibles.";
-      }
-    });
-  });
+// Génération dynamique des cartes projets
+for (const language in projectsByLanguage) {
+  if (projectsByLanguage.hasOwnProperty(language)) {
+    const projects = projectsByLanguage[language];
 
-  closeButton.addEventListener('click', function() {
-    closeModal();
-});
+    projects.forEach(project => {
+      const container = document.createElement('div');
+      container.className = 'container-projets';
+      container.setAttribute('data-lang', language);
 
-    window.addEventListener('click', function(event) {
-        if (event.target === modal) {
-            closeModal();
-        }
-    });
+      const card = document.createElement('div');
+      card.className = 'projet-carte';
 
-    window.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            closeModal();
-        }
-    });
+      // Slider
+      const sliderContainer = document.createElement('div');
+      sliderContainer.className = 'slider-container';
+      sliderContainer.dataset.sliderId = sliderIndex;
+      currentSlides[sliderIndex] = 0;
 
-    function closeModal() {
-        modal.classList.add('fade-out'); // Ajoute la classe fade-out pour l'effet de disparition
-        modal.addEventListener('transitionend', function() {
-            modal.classList.remove('show'); // Cache complètement la modale
-            modalDetails.innerHTML = ""; // Réinitialiser le contenu
-        }, { once: true });
-    }
+      const sliderWrapper = document.createElement('div');
+      sliderWrapper.className = 'slider-wrapper';
 
+      project.images.forEach((photo, index) => {
+        const slide = document.createElement('div');
+        slide.className = 'slide' + (index === 0 ? ' active' : '');
 
-  // Fonctionnalité de filtrage
-  const buttons = document.querySelectorAll('.btn-filter');
-  const projects = document.querySelectorAll('.container-projets');
+        const img = document.createElement('img');
+        img.src = photo.src;
+        img.alt = photo.title;
+        img.onerror = function() {
+          this.src = 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=300&fit=crop';
+        };
 
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
+        const slideContent = document.createElement('div');
+        slideContent.className = 'slide-content';
+        const slideTitle = document.createElement('h1');
+        slideTitle.textContent = photo.title;
+        slideContent.appendChild(slideTitle);
 
-      buttons.forEach(btn => btn.classList.remove('active'));
-      
-      button.classList.add('active');
+        slide.appendChild(img);
+        slide.appendChild(slideContent);
+        sliderWrapper.appendChild(slide);
+      });
 
-      
+      sliderContainer.appendChild(sliderWrapper);
 
-      const filter = button.getAttribute('data-filter');
+      // Flèches, dots et fullscreen
+      if (project.images.length > 1) {
+        const prevArrow = document.createElement('div');
+        prevArrow.className = 'arrow arrow-left';
+        prevArrow.innerHTML = '‹';
+        const nextArrow = document.createElement('div');
+        nextArrow.className = 'arrow arrow-right';
+        nextArrow.innerHTML = '›';
 
-      // Afficher toutes les cartes si "all" est cliqué
-      if (filter === "all") {
-        projects.forEach(project => {
-          project.classList.remove('hidden');
-        });
-      } else {
-        projects.forEach(project => {
-          // Vérifier si le data-lang de la carte correspond au filtre
-          if (project.getAttribute('data-lang') === filter) {
-            project.classList.remove('hidden');
+        const fullScreenBtn = document.createElement('div');
+        fullScreenBtn.className = 'btn-fullscreen-slider';
+        fullScreenBtn.innerHTML = '⤢';
+
+        sliderContainer.appendChild(fullScreenBtn);
+
+        fullScreenBtn.onclick = () => {
+          const sliderWrapper = sliderContainer.querySelector('.slider-wrapper');
+          if (!document.fullscreenElement) {
+              sliderContainer.requestFullscreen().catch(err => console.error(err));
+              sliderWrapper.classList.add('fullscreen-active');
+              sliderWrapper.style.height = '100vh';
           } else {
-            project.classList.add('hidden');
+              document.exitFullscreen();
+              sliderWrapper.classList.remove('fullscreen-active');
+              sliderWrapper.style.height = '500px';
+          }
+        };
+
+        document.addEventListener('fullscreenchange', () => {
+          const sliderWrapper = sliderContainer.querySelector('.slider-wrapper');
+          if (!document.fullscreenElement) {
+            sliderWrapper.classList.remove('fullscreen-active');
+            sliderWrapper.style.height = '500px';
           }
         });
+
+        const dotsContainer = document.createElement('div');
+        dotsContainer.className = 'dots';
+
+        project.images.forEach((_, index) => {
+          const dot = document.createElement('div');
+          dot.className = 'dot' + (index === 0 ? ' active' : '');
+          dot.dataset.sliderId = sliderIndex;
+          dot.dataset.slideIndex = index;
+          dot.onclick = function() { goToSlide(parseInt(this.dataset.sliderId), parseInt(this.dataset.slideIndex)); };
+          dotsContainer.appendChild(dot);
+        });
+
+        prevArrow.dataset.sliderId = sliderIndex;
+        nextArrow.dataset.sliderId = sliderIndex;
+        prevArrow.onclick = function() { changeSlide(parseInt(this.dataset.sliderId), -1); };
+        nextArrow.onclick = function() { changeSlide(parseInt(this.dataset.sliderId), 1); };
+
+        sliderContainer.appendChild(prevArrow);
+        sliderContainer.appendChild(nextArrow);
+        sliderContainer.appendChild(dotsContainer);
       }
+
+      const title = document.createElement('h4');
+      title.className = 'projet-titre';
+      title.innerHTML = `<b>${project.title}</b>`;
+
+      const descContainer = document.createElement('div');
+      descContainer.className = 'projet-description';
+      const p = document.createElement('p');
+      p.textContent = project.description;
+      descContainer.appendChild(p);
+
+      card.appendChild(sliderContainer);
+      card.appendChild(title);
+
+      // Technologies avec couleur
+      if (project.technologies && project.technologies.length > 0) {
+        const containerTechnologies = document.createElement('div');
+        containerTechnologies.className = 'projets-technologies-container';
+
+        project.technologies.forEach(tech => {
+          const spanTechnologie = document.createElement('span');
+          spanTechnologie.className = 'projet-technologie';
+          spanTechnologie.textContent = tech.name;
+          if (tech.color) {
+            spanTechnologie.style.backgroundColor = tech.color;
+          }
+          containerTechnologies.appendChild(spanTechnologie);
+        });
+        card.appendChild(containerTechnologies);
+      }
+
+      card.appendChild(descContainer);
+
+      const projetBtn = document.createElement('button');
+      projetBtn.className = 'projet-btn';
+      projetBtn.textContent = 'Voir le projet';
+      projetBtn.onclick = function() { window.open(project.projetLink, '_blank'); };
+      card.appendChild(projetBtn);
+
+      container.appendChild(card);
+      containerAllCarteProjets.appendChild(container);
+
+      sliderIndex++;
     });
+  }
+}
+
+function changeSlide(sliderId, direction) {
+  const sliderContainer = document.querySelector(`[data-slider-id="${sliderId}"]`);
+  if (!sliderContainer) return;
+  const slides = sliderContainer.querySelectorAll('.slide');
+  const dots = sliderContainer.querySelectorAll('.dot');
+  slides[currentSlides[sliderId]].classList.remove('active');
+  if (dots.length > 0) dots[currentSlides[sliderId]].classList.remove('active');
+  currentSlides[sliderId] = (currentSlides[sliderId] + direction + slides.length) % slides.length;
+  const sliderWrapper = sliderContainer.querySelector('.slider-wrapper');
+  sliderWrapper.style.transform = `translateX(-${currentSlides[sliderId]*100}%)`;
+  slides[currentSlides[sliderId]].classList.add('active');
+  if (dots.length > 0) dots[currentSlides[sliderId]].classList.add('active');
+}
+
+function goToSlide(sliderId, index) {
+  const sliderContainer = document.querySelector(`[data-slider-id="${sliderId}"]`);
+  if (!sliderContainer) return;
+  const slides = sliderContainer.querySelectorAll('.slide');
+  const dots = sliderContainer.querySelectorAll('.dot');
+  slides[currentSlides[sliderId]].classList.remove('active');
+  if (dots.length > 0) dots[currentSlides[sliderId]].classList.remove('active');
+  currentSlides[sliderId] = index;
+  const sliderWrapper = sliderContainer.querySelector('.slider-wrapper');
+  sliderWrapper.style.transform = `translateX(-${currentSlides[sliderId]*100}%)`;
+  slides[currentSlides[sliderId]].classList.add('active');
+  if (dots.length > 0) dots[currentSlides[sliderId]].classList.add('active');
+}
+
+window.changeSlide = changeSlide;
+window.goToSlide = goToSlide;
+
+// Filtrage
+const buttons = document.querySelectorAll('.btn-filter');
+const projects = document.querySelectorAll('.container-projets');
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    buttons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+    const filter = button.getAttribute('data-filter');
+    if (filter === "all") {
+      projects.forEach(project => project.classList.remove('hidden'));
+    } else {
+      projects.forEach(project => {
+        if (project.getAttribute('data-lang') === filter) project.classList.remove('hidden');
+        else project.classList.add('hidden');
+      });
+    }
   });
+});
+
+// Navigation clavier
+document.addEventListener('keydown', event => {
+  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+    const visibleSlider = document.querySelector('.container-projets:not(.hidden) .slider-container');
+    if (!visibleSlider) return;
+    const sliderId = parseInt(visibleSlider.dataset.sliderId);
+    if (event.key === 'ArrowLeft') changeSlide(sliderId, -1);
+    else changeSlide(sliderId, 1);
+  }
 });
