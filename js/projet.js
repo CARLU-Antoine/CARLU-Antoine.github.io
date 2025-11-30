@@ -34,6 +34,21 @@ const projectsByLanguage = {
       description: `EmailReaderBackend est une application backend développée en C# utilisant Microsoft Graph API pour récupérer les emails d'un compte utilisateur Microsoft. 
         Ce projet permet de s'authentifier via OAuth2.0 et de récupérer tous les emails d'une boîte de réception sans limite de 1000 emails.`,
       projetLink: "https://github.com/CARLU-Antoine/EmailReaderBackend"
+    },{
+      title: "Projet Store",
+      images: [
+        { src: "asset/project/store/connexion.png", title: "Interface connexion" },
+        { src: "asset/project/store/creation-produit.png", title: "Interface creation produit" },
+        { src: "asset/project/store/panier.png", title: "Interface panier" }
+      ],
+      technologies: [
+        { name: "C# dotnet", color: "#68217A" },
+        { name: "Docker", color: "#0078D4" },
+        { name: "Angular", color: "#DD0031" },
+        { name: "TypeScript", color: "#3178C6" },
+      ],
+      description: `Store est une application permettant de gérer des produits, un panier et des listes diverses. L'application est développée avec C# dotnet pour le backend et Angular pour le frontend, et est conteneurisée avec Docker pour faciliter le déploiement.`,
+      projetLink: "https://github.com/CARLU-Antoine/Store"
     }
   ],
     react: [
@@ -55,6 +70,22 @@ const projectsByLanguage = {
   ],
   java: [
     {
+      title: "Projet Medicament",
+      images: [
+        { src: "asset/project/medicament/connexion.png", title: "Gestion des médicaments" },
+        { src:"asset/project/medicament/ajout-produit.png", title: "Gestion des médicaments" },
+        { src: "asset/project/medicament/informations.png", title: "Gestion des médicaments" },
+          { src: "asset/project/medicament/menu.png", title: "Gestion des médicaments" }
+      ],
+      technologies: [
+        { name: "Java", color: "#f89820" },
+        { name: "PHP", color: "#777BB4" },
+        { name: "MySQL", color: "#4479A1" }
+      ],
+      description: "Application Java/PHP pour la gestion des médicaments, avec interface pour ajouter, consulter et modifier les informations des médicaments.",
+      projetLink: "https://github.com/CARLU-Antoine/Medicament"
+    },
+    {
       title: "Projet Patient",
       images: [
         { src: "asset/project/java.png", title: "Interface principale" }
@@ -64,7 +95,7 @@ const projectsByLanguage = {
         { name: "PHP", color: "#777BB4" },
         { name: "MySQL", color: "#4479A1" }
       ],
-      description: "Application Java de gestion des patients, avec interface pour envoyer des SMS, modifier les informations et gérer les contacts internes.",
+      description: "Application Java de gestion des patients, avec interface pour envoyer des SMS, modifier les informations et gérer les contacts internes avec des beacons.",
       projetLink: "https://github.com/CARLU-Antoine/Projet-Patient"
     }
   ],
@@ -87,7 +118,10 @@ const projectsByLanguage = {
     {
       title: "Projet PDF editor",
       images: [
-        { src: "asset/project/pdf-editor.jpg", title: "Éditeur PDF" }
+        { src: "asset/project/pdf-editor/dropzone.png", title: "Éditeur PDF" },
+        { src: "asset/project/pdf-editor/editeur.png", title: "Éditeur PDF" },
+        { src: "asset/project/pdf-editor/edition.png", title: "Éditeur PDF" },
+        { src: "asset/project/pdf-editor/fullscreen.png", title: "Éditeur PDF" }
       ],
       technologies: [
         { name: "HTML", color: "#E34F26" },
@@ -112,21 +146,6 @@ const projectsByLanguage = {
       ],
       description: "Application web en PHP pour gérer la réservation, la facturation et la gestion des containers, avec création de compte et interface client.",
       projetLink: "https://github.com/CARLU-Antoine/PPE2"
-    }
-  ],
-  javaphp: [
-    {
-      title: "Projet Medicament",
-      images: [
-        { src: "asset/project/java-php.png", title: "Gestion des médicaments" }
-      ],
-      technologies: [
-        { name: "Java", color: "#f89820" },
-        { name: "PHP", color: "#777BB4" },
-        { name: "MySQL", color: "#4479A1" }
-      ],
-      description: "Application Java/PHP pour la gestion des médicaments, avec interface pour ajouter, consulter et modifier les informations des médicaments.",
-      projetLink: "https://github.com/CARLU-Antoine/Medicament"
     }
   ],
   angular: [
@@ -184,14 +203,7 @@ for (const language in projectsByLanguage) {
           this.src = 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=300&fit=crop';
         };
 
-        const slideContent = document.createElement('div');
-        slideContent.className = 'slide-content';
-        const slideTitle = document.createElement('h1');
-        slideTitle.textContent = photo.title;
-        slideContent.appendChild(slideTitle);
-
         slide.appendChild(img);
-        slide.appendChild(slideContent);
         sliderWrapper.appendChild(slide);
       });
 
@@ -221,7 +233,7 @@ for (const language in projectsByLanguage) {
           } else {
               document.exitFullscreen();
               sliderWrapper.classList.remove('fullscreen-active');
-              sliderWrapper.style.height = '40vh';
+              sliderWrapper.style.height = '45vh';
           }
         };
 
@@ -229,7 +241,7 @@ for (const language in projectsByLanguage) {
           const sliderWrapper = sliderContainer.querySelector('.slider-wrapper');
           if (!document.fullscreenElement) {
             sliderWrapper.classList.remove('fullscreen-active');
-            sliderWrapper.style.height = '40vh';
+            sliderWrapper.style.height = '45vh';
           }
         });
 
