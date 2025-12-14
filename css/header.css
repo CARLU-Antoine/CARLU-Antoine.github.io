@@ -103,6 +103,7 @@
 .typing-container {
   display: inline-flex;
   align-items: center;
+  min-height:40px;
 }
 
 .cursor {
