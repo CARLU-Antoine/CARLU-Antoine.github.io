@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(40vh, 1fr));
   place-items: center;
-  gap: 1rem;
+  gap: 5rem;
   padding: 1rem;
 }
 
