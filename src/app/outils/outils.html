@@ -1,0 +1,59 @@
+<div class="py-16 px-4 max-w-4xl mx-auto">
+  <h2 class="text-3xl font-bold text-center mb-10">Mes compétences</h2>
+
+  <!-- Tabs filtre -->
+  <div class="flex justify-center mb-8">
+    <div class="tabs tabs-boxed">
+      @for (cat of categories; track cat.id) {
+        <a class="tab"
+           [class.tab-active]="activeTab === cat.id"
+           (click)="activeTab = cat.id">
+          {{ cat.label }}
+        </a>
+      }
+    </div>
+  </div>
+
+  <!-- Langages -->
+  @if (activeTab === 'tout' || activeTab === 'langages') {
+    <div class="divider text-lg font-bold">Langages de programmation</div>
+    <div class="flex flex-wrap justify-center gap-6 mb-8">
+      @for (comp of getByCategorie('langages'); track comp.nom) {
+        <a [href]="comp.lien" target="_blank"
+           class="flex flex-col items-center gap-2 p-4 card bg-base-100 shadow hover:shadow-lg hover:-translate-y-1 transition-all w-24">
+          <img [src]="comp.image" [alt]="comp.nom" class="w-12 h-12 object-contain">
+          <span class="text-xs text-center font-semibold">{{ comp.nom }}</span>
+        </a>
+      }
+    </div>
+  }
+
+  <!-- Frameworks -->
+  @if (activeTab === 'tout' || activeTab === 'frameworks') {
+    <div class="divider text-lg font-bold">Frameworks / Librairies</div>
+    <div class="flex flex-wrap justify-center gap-6 mb-8">
+      @for (comp of getByCategorie('frameworks'); track comp.nom) {
+        <a [href]="comp.lien" target="_blank"
+           class="flex flex-col items-center gap-2 p-4 card bg-base-100 shadow hover:shadow-lg hover:-translate-y-1 transition-all w-24">
+          <img [src]="comp.image" [alt]="comp.nom" class="w-12 h-12 object-contain">
+          <span class="text-xs text-center font-semibold">{{ comp.nom }}</span>
+        </a>
+      }
+    </div>
+  }
+
+  <!-- Utilitaires -->
+  @if (activeTab === 'tout' || activeTab === 'utilitaires') {
+    <div class="divider text-lg font-bold">Utilitaires</div>
+    <div class="flex flex-wrap justify-center gap-6 mb-8">
+      @for (comp of getByCategorie('utilitaires'); track comp.nom) {
+        <a [href]="comp.lien" target="_blank"
+           class="flex flex-col items-center gap-2 p-4 card bg-base-100 shadow hover:shadow-lg hover:-translate-y-1 transition-all w-24">
+          <img [src]="comp.image" [alt]="comp.nom" class="w-12 h-12 object-contain">
+          <span class="text-xs text-center font-semibold">{{ comp.nom }}</span>
+        </a>
+      }
+    </div>
+  }
+
+</div>

@@ -1,0 +1,91 @@
+<div class="flex justify-center py-16 px-4">
+  <div class="flex flex-col lg:flex-row gap-8 w-full max-w-5xl">
+
+    <!-- Card présentation -->
+    <div class="card bg-base-100 shadow-xl w-full lg:w-1/2">
+      <div class="card-body">
+        <div class="flex flex-col items-center gap-4">
+          <div class="avatar">
+            <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+              <img src="assets/me.png" />
+            </div>
+          </div>
+          <h2 class="card-title text-2xl">CARLU Antoine</h2>
+          <p class="text-primary">Développeur Fullstack</p>
+        </div>
+
+        <div class="divider">À propos</div>
+        <p class="text-center">
+          Étudiant en architecte des systèmes d'information au CFA INSTA.
+          Passionné par le développement web et la création d'applications innovantes.
+        </p>
+
+        <div class="divider">Compétences</div>
+
+        <div class="flex flex-wrap justify-center gap-2">
+
+        <!-- Frontend -->
+        <span class="badge badge-primary">Angular</span>
+        <span class="badge badge-primary">React</span>
+        <span class="badge badge-primary">TypeScript</span>
+        <span class="badge badge-primary">Three.js</span>
+        <span class="badge badge-primary">Vite</span>
+
+        <!-- Backend -->
+        <span class="badge badge-secondary">Node.js</span>
+        <span class="badge badge-secondary">Express</span>
+        <span class="badge badge-secondary">Symfony</span>
+        <span class="badge badge-secondary">Django</span>
+        <span class="badge badge-secondary">C#</span>
+        <span class="badge badge-secondary">.NET</span>
+
+        <!-- Desktop / Tools -->
+        <span class="badge badge-accent">Electron</span>
+        <span class="badge badge-accent">Docker</span>
+
+        <!-- APIs -->
+        <span class="badge badge-info">GitHub API</span>
+        <span class="badge badge-info">Microsoft Graph API</span>
+        <span class="badge badge-info">MSAL</span>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Carrousel formations -->
+    <div class="w-full lg:w-1/2 flex flex-col justify-center">
+      <h3 class="text-xl font-bold text-center mb-4">Mes formations</h3>
+
+      <div class="relative w-full rounded-xl overflow-hidden shadow-xl h-64">
+        @for (formation of formations; track formation.id; let i = $index) {
+          <div class="absolute inset-0 slide"
+               [style.opacity]="i === currentSlide ? '1' : '0'"
+               [style.z-index]="i === currentSlide ? '10' : '0'">
+            <img [src]="formation.image" class="w-full h-full object-cover" />
+            <div class="absolute bottom-0 left-0 right-0 bg-black/40 text-white text-center py-2 text-sm">
+              {{ formation.title }}
+            </div>
+          </div>
+        }
+
+        <div class="absolute left-3 right-3 top-1/2 flex -translate-y-1/2 justify-between z-20">
+          <button class="btn btn-circle btn-sm" (click)="prev()">❮</button>
+          <button class="btn btn-circle btn-sm" (click)="next()">❯</button>
+        </div>
+      </div>
+
+      <div class="flex justify-center gap-2 mt-3">
+        @for (formation of formations; track formation.id; let i = $index) {
+          <button class="btn btn-xs"
+                  [class.btn-primary]="i === currentSlide"
+                  [class.btn-ghost]="i !== currentSlide"
+                  (click)="goToSlide(i)">
+            {{ i + 1 }}
+          </button>
+        }
+      </div>
+    </div>
+
+  </div>
+</div>

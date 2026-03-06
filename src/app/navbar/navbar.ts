@@ -1,18 +1,22 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Router } from '@angular/router';
+import { AccueilComponent } from '../accueil/accueil';
+import { PresentationComponent } from '../presentation/presentation';
+import { FriseComponent } from '../frise/frise';
+import { OutilsComponent } from '../outils/outils';
+import { ProjetsComponent } from '../projets/projets';
+import { FooterComponent } from '../footer/footer';
+
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, AccueilComponent, PresentationComponent, FriseComponent, OutilsComponent, ProjetsComponent, FooterComponent],
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.css']
 })
 export class NavbarComponent {
-  constructor(private router: Router) {}
-
-  navigate(route: string) {
-    this.router.navigate([route]);
+  scrollTo(sectionId: string) {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   }
 }
