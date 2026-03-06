@@ -1,0 +1,25 @@
+<div class="navbar bg-base-100 shadow-sm">
+  <div class="flex-1">
+    <div class="dropdown">
+      <button tabindex="0" class="btn btn-ghost btn-square lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg>
+      </button>
+      <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+        <li><a (click)="navigate('')">Accuesil</a></li>
+        <li><a (click)="navigate('portfolio')">Portfolio</a></li>
+        <li><a (click)="navigate('about')">À propos</a></li>
+        <li><a (click)="navigate('contact')">Contact</a></li>
+      </ul>
+    </div>
+    <a class="btn btn-ghost text-xl" (click)="navigate('')">Portfolio CARLU Antoine</a>
+  </div>
+  <div class="flex justify-center flex-1 hidden lg:flex">
+    <ul class="menu menu-horizontal px-1">
+      <li><a (click)="navigate('')">Accueil</a></li>
+      <li><a (click)="navigate('portfolio')">Portfolio</a></li>
+      <li><a (click)="navigate('about')">À propos</a></li>
+      <li><a (click)="navigate('contact')">Contact</a></li>
+    </ul>
+  </div>
+  <div class="flex-1"></div>
+</div>
