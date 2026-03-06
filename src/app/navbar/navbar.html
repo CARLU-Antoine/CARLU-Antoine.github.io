@@ -1,25 +1,39 @@
-<div class="navbar bg-base-100 shadow-sm">
+<div class="navbar bg-base-100 shadow-sm fixed top-0 left-0 right-0 z-50">
   <div class="flex-1">
     <div class="dropdown">
-      <button tabindex="0" class="btn btn-ghost btn-square lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg>
+      <button tabindex="0" class="btn btn-ghost btn-xs lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
       </button>
       <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-        <li><a (click)="navigate('')">Accuesil</a></li>
-        <li><a (click)="navigate('portfolio')">Portfolio</a></li>
-        <li><a (click)="navigate('about')">À propos</a></li>
-        <li><a (click)="navigate('contact')">Contact</a></li>
+        <li><a (click)="scrollTo('accueil')">Accueil</a></li>
+        <li><a (click)="scrollTo('presentation')">Présentation</a></li>
+        <li><a (click)="scrollTo('frise')">Expériences</a></li>
+        <li><a (click)="scrollTo('outils')">Outils</a></li>
+        <li><a (click)="scrollTo('projets')">Projets</a></li>
       </ul>
     </div>
-    <a class="btn btn-ghost text-xl" (click)="navigate('')">Portfolio CARLU Antoine</a>
+    <a class="btn btn-ghost text-xl" (click)="scrollTo('accueil')">Portfolio CARLU Antoine</a>
   </div>
-  <div class="flex justify-center flex-1 hidden lg:flex">
+
+  <div class="flex-1 flex justify-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
-      <li><a (click)="navigate('')">Accueil</a></li>
-      <li><a (click)="navigate('portfolio')">Portfolio</a></li>
-      <li><a (click)="navigate('about')">À propos</a></li>
-      <li><a (click)="navigate('contact')">Contact</a></li>
+      <li><a (click)="scrollTo('accueil')">Accueil</a></li>
+      <li><a (click)="scrollTo('presentation')">Présentation</a></li>
+      <li><a (click)="scrollTo('frise')">Expériences</a></li>
+      <li><a (click)="scrollTo('outils')">Outils</a></li>
+      <li><a (click)="scrollTo('projets')">Projets</a></li>
     </ul>
   </div>
+
   <div class="flex-1"></div>
 </div>
+
+<!-- Sections avec id pour le scroll -->
+<div id="accueil"><app-accueil></app-accueil></div>
+<div id="presentation"><app-presentation></app-presentation></div>
+<div id="frise"><app-frise></app-frise></div>
+<div id="outils"><app-outils></app-outils></div>
+<div id="projets"><app-projets></app-projets></div>
+<app-footer></app-footer>
