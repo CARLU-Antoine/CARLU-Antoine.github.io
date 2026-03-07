@@ -37,7 +37,7 @@ export class ExpriencesComponent {
       date: '10/2025 – 10/2028',
       title: 'CDD Concepteur logiciel',
       company: 'Ministère des Armées',
-      logo: 'assets/entreprises/Ministère_des_Armées_et_des_Anciens_Combattants.png',
+      logo: 'assets/entreprises/minarm.png',
       tasks: [
         'Gestion de projets en méthode Agile',
         'Développement de modules informatiques répondant aux besoins métier'
@@ -65,7 +65,7 @@ export class ExpriencesComponent {
       date: '09/2023 – 08/2025',
       title: 'Alternant Développeur Full-stack',
       company: 'Ministère des Armées',
-      logo: 'assets/entreprises/Ministère_des_Armées_et_des_Anciens_Combattants.png',
+      logo: 'assets/entreprises/minarm.png',
       tasks: [
         'Conception et développement frontend et backend d\'applications web performantes et sécurisées',
         'Conception et mise en place de bases de données',
