@@ -1,71 +1,100 @@
-<ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-  <li>
-    <div class="timeline-middle">
-      <div class="w-24 h-24 rounded-full border-2 border-primary bg-white flex items-center justify-center overflow-hidden">
-        <img src="assets/entreprises/Saint-Maur-des-Fossés.png" alt="Logo Saint-Maur-des-Fossés" class="w-20 h-20 object-contain">
-      </div>
-    </div>
-    <div class="timeline-end timeline-box">
-      <time class="font-mono italic">2023</time>
-      <p class="text-lg font-black">Stage développeur VBA</p>
-      <p class="text-sm text-primary font-semibold">Mairie de Saint-Maur des Fossés</p>
-      <ul class="text-sm mt-2 list-disc list-inside">
-        <li>Recueil du besoin des utilisateurs</li>
-        <li>Réalisations / modifications de macro VBA</li>
-      </ul>
-      <div class="flex gap-2 mt-2 flex-wrap">
-        <span class="badge badge-success">Excel</span>
-        <span class="badge badge-success">VBA</span>
-      </div>
-    </div>
-    <hr class="bg-primary"/>
-  </li>
+<section class="flex justify-center px-4 py-16 min-h-screen">
+  <div class="w-full max-w-4xl">
 
-  <li>
-    <hr class="bg-primary"/>
-    <div class="timeline-middle">
-      <div class="w-24 h-24 rounded-full border-2 border-primary bg-white flex items-center justify-center overflow-hidden">
-        <img src="assets/entreprises/coachinternet.png" alt="Logo Coachinternet" class="w-20 h-20 object-contain">
-      </div>
+    <!-- Heading -->
+    <div class="text-center mb-14">
+      <h2 class="text-4xl font-extrabold text-gray-900 tracking-tight">
+        Mon <span class="text-blue-600">parcours</span>
+      </h2>
+      <p class="mt-2 text-gray-500 text-sm font-light">Expériences professionnelles</p>
     </div>
-    <div class="timeline-start timeline-box md:text-end">
-      <time class="font-mono italic">2022</time>
-      <p class="text-lg font-black">Stage développeur frontend</p>
-      <p class="text-sm text-primary font-semibold">Coachinternet</p>
-      <ul class="text-sm mt-2 list-disc list-inside md:list-outside">
-        <li>Recueil du besoin des utilisateurs</li>
-        <li>Réalisations / modifications sur les sites web des clients</li>
-      </ul>
-      <div class="flex gap-2 mt-2 flex-wrap md:justify-end">
-        <span class="badge badge-info">HTML</span>
-        <span class="badge badge-info">CSS</span>
-        <span class="badge badge-info">JS</span>
-        <span class="badge badge-info">Wordpress</span>
-      </div>
-    </div>
-    <hr class="bg-primary"/>
-  </li>
 
-  <li>
-    <hr class="bg-primary"/>
-    <div class="timeline-middle">
-      <div class="w-24 h-24 rounded-full border-2 border-primary bg-white flex items-center justify-center overflow-hidden">
-        <img src="assets/entreprises/rte.png" alt="Logo RTE" class="w-20 h-20 object-contain">
-      </div>
-    </div>
-    <div class="timeline-end timeline-box">
-      <time class="font-mono italic">2019 - 2020</time>
-      <p class="text-lg font-black">Stage technicien informatique</p>
-      <p class="text-sm text-primary font-semibold">RTE</p>
-      <ul class="text-sm mt-2 list-disc list-inside">
-        <li>Création de plateformes d'essai</li>
-        <li>Installation de machines virtuelles</li>
-      </ul>
-      <div class="flex gap-2 mt-2 flex-wrap">
-        <span class="badge badge-warning">Plateformes d'essai</span>
-        <span class="badge badge-warning">Machines virtuelles</span>
-      </div>
-    </div>
-  </li>
+    <!-- Timeline -->
+    <ul class="relative">
 
-</ul>
+      <!-- Vertical line -->
+      <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-0.5 h-full
+               bg-gradient-to-b from-transparent via-blue-200 to-transparent z-0">
+      </div>
+
+      <!-- Items -->
+      <li
+        *ngFor="let item of items; let i = index"
+        class="relative flex items-center w-full mb-14 group"
+        [class.justify-start]="item.side === 'left'"
+        [class.justify-end]="item.side === 'right'">
+
+        <!-- Node / Logo -->
+        <div
+          class="z-10 absolute left-1/2 -translate-x-1/2
+                 w-14 h-14 rounded-full bg-white
+                 flex items-center justify-center">
+          <img
+            [src]="item.logo"
+            [alt]="item.company"
+            class="w-9 h-9 object-contain"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <!-- Fallback initials -->
+          <span
+            class="hidden text-blue-600 font-bold text-sm items-center justify-center">
+            {{ item.company.charAt(0) }}
+          </span>
+        </div>
+
+        <!-- Card -->
+        <div
+          class="relative grey border border-slate-100 rounded-2xl p-6 shadow-sm
+                 w-[calc(49%-3.5rem)] transition-all duration-300"
+          [class.mr-14]="item.side === 'left'"
+          [class.ml-auto]="item.side === 'left'"
+          [class.ml-14]="item.side === 'right'"
+          [class.mr-auto]="item.side === 'right'">
+
+          <!-- Date badge -->
+          <time
+            class="inline-block text-xs font-semibold tracking-widest uppercase
+                   text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded-full mb-3">
+            {{ item.date }}
+          </time>
+
+          <!-- Title -->
+          <h3 class="text-lg font-extrabold text-gray-900 leading-snug mb-1">
+            {{ item.title }}
+          </h3>
+
+          <!-- Company -->
+          <p class="text-sm font-medium text-blue-500 mb-4">
+            {{ item.company }}
+          </p>
+
+          <!-- Tasks -->
+          <ul
+            *ngIf="item.tasks && item.tasks.length"
+            class="space-y-1.5 mb-4">
+            <li
+              *ngFor="let task of item.tasks"
+              class="flex items-start gap-2 text-sm text-slate-600">
+              <span class="mt-1 w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0"></span>
+              {{ task }}
+            </li>
+          </ul>
+
+          <!-- Tags -->
+          <div
+            *ngIf="item.tags && item.tags.length"
+            class="flex flex-wrap gap-2">
+            <span
+              *ngFor="let tag of item.tags"
+              class="px-3 py-0.5 rounded-full text-xs font-medium"
+              [ngClass]="tag.color">
+              {{ tag.label }}
+            </span>
+          </div>
+
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</section>
