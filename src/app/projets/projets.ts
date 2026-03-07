@@ -33,6 +33,22 @@ export class ProjetsComponent {
 
   projectsByLanguage: Record<string, Project[]> = {
     react: [
+     {
+        title: 'Portfolio',
+        images: [
+          { src: 'assets/project/nouveau-portfolio/accueil.png', title: "Accueil" },
+          { src: 'assets/project/nouveau-portfolio/presentation.png', title: "Présentation de moi" },
+          { src: 'assets/project/nouveau-portfolio/experiences.png', title: "Mes expériences" },
+          { src: 'assets/project/nouveau-portfolio/preview-experience.png', title: "Détails de l'expérience" },
+          { src: 'assets/project/nouveau-portfolio/competences.png', title: "Mes compétences" },
+          { src: 'assets/project/nouveau-portfolio/projets.png', title: "Mes projets" },
+        ],
+        technologies: [
+          { name: 'React', color: '#61DAFB' }
+        ],
+        description: "Mon portfolio présente mes projets, mes compétences et les technologies que j'utilise.",
+        projetLink: 'https://github.com/CARLU-Antoine/ancien-portoflio',
+      },
       {
         title: 'LiteFlow',
         images: [
@@ -174,7 +190,23 @@ export class ProjetsComponent {
         ],
         description: "Éditeur PDF en ligne permettant de créer, modifier et annoter des fichiers PDF directement dans le navigateur.",
         projetLink: 'https://github.com/CARLU-Antoine/pdf-editor',
-      },
+      },{
+        title: 'Ancien Portfolio',
+        images: [
+          { src: 'assets/project/ancien-portfolio/accueil.png', title: "Accueil" },
+          { src: 'assets/project/ancien-portfolio/presentation.png', title: "Présentation de moi" },
+          { src: 'assets/project/ancien-portfolio/experiences.png', title: "Mes expériences" },
+          { src: 'assets/project/ancien-portfolio/competences.png', title: "Mes compétences" },
+          { src: 'assets/project/ancien-portfolio/projets.png', title: "Mes projets" },
+        ],
+        technologies: [
+          { name: 'HTML', color: '#E34F26' },
+          { name: 'CSS', color: '#1572B6' },
+          { name: 'JavaScript', color: '#F7DF1E' },
+        ],
+        description: "Mon ancien portfolio présente mes projets, mes compétences et les technologies que j'utilise.",
+        projetLink: 'https://github.com/CARLU-Antoine/ancien-portoflio',
+      }
     ],
     htmlcssphp: [
       {

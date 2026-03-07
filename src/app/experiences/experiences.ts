@@ -34,7 +34,7 @@ export class ExpriencesComponent {
 
   items: ExperienceItem[] = [
     {
-      date: '10/2025 – 10/2028',
+      date: '10/2025 – en cours',
       title: 'CDD Concepteur logiciel',
       company: 'Ministère des Armées',
       logo: 'assets/entreprises/minarm.png',
