@@ -1,36 +1,45 @@
 <div class="navbar bg-base-100 shadow-sm fixed top-0 left-0 right-0 z-50">
   <div class="flex-1">
-    <div class="dropdown">
-      <button tabindex="0" class="btn btn-ghost btn-xs lg:hidden">
+    <div class="dropdown" #dropdown [class.dropdown-open]="menuOpen">
+      <button class="btn btn-ghost btn-xs lg:hidden" (click)="toggleMenu($event)">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
-      <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-        <li><a (click)="scrollTo('accueil')">Accueil</a></li>
-        <li><a (click)="scrollTo('presentation')">Présentation</a></li>
-        <li><a (click)="scrollTo('frise')">Expériences</a></li>
-        <li><a (click)="scrollTo('outils')">Outils</a></li>
-        <li><a (click)="scrollTo('projets')">Projets</a></li>
+      <ul class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+        <li *ngFor="let section of sections">
+            <a
+              (click)="scrollTo(section.id, $event);"
+              [class.border-l-4]="activeSection === section.id"
+              [class.border-blue-500]="activeSection === section.id"
+              [class.text-blue-500]="activeSection === section.id"
+              class="transition-all duration-200">
+              {{ section.label }}
+            </a>
+          </li>
       </ul>
     </div>
     <a class="btn btn-ghost text-xl" (click)="scrollTo('accueil')">Portfolio CARLU Antoine</a>
   </div>
 
-  <div class="flex-1 flex justify-center hidden lg:flex">
+  <div class="flex-1 justify-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
-      <li><a (click)="scrollTo('accueil')">Accueil</a></li>
-      <li><a (click)="scrollTo('presentation')">Présentation</a></li>
-      <li><a (click)="scrollTo('frise')">Expériences</a></li>
-      <li><a (click)="scrollTo('outils')">Outils</a></li>
-      <li><a (click)="scrollTo('projets')">Projets</a></li>
+      <li *ngFor="let section of sections">
+        <a
+          (click)="scrollTo(section.id)"
+          [class.border-b-2]="activeSection === section.id"
+          [class.border-blue-500]="activeSection === section.id"
+          [class.text-blue-500]="activeSection === section.id"
+          class="transition-all duration-200 rounded-none">
+          {{ section.label }}
+        </a>
+      </li>
     </ul>
   </div>
 
   <div class="flex-1"></div>
 </div>
 
-<!-- Sections avec id pour le scroll -->
 <div id="accueil"><app-accueil></app-accueil></div>
 <div id="presentation"><app-presentation></app-presentation></div>
 <div id="frise"><app-frise></app-frise></div>
