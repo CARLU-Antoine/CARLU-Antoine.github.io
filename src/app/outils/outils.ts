@@ -19,11 +19,13 @@ export class OutilsComponent {
   ];
 
   competences = [
-    { nom: 'VBA', image: 'assets/langages/vba.png', lien: 'https://learn.microsoft.com/fr-fr/office/vba/', categorie: 'langages' },
-    { nom: 'Java', image: 'assets/langages/java.svg', lien: 'https://www.oracle.com/java/', categorie: 'langages' },
-    { nom: 'C#', image: 'assets/langages/csharp.svg', lien: 'https://docs.microsoft.com/en-us/dotnet/csharp/', categorie: 'langages' },
-    { nom: 'Python', image: 'assets/langages/python.svg', lien: 'https://www.python.org/', categorie: 'langages' },
     { nom: 'JavaScript', image: 'assets/langages/javascript.svg', lien: 'https://www.javascript.com/', categorie: 'langages' },
+ { nom: 'Python', image: 'assets/langages/python.svg', lien: 'https://www.python.org/', categorie: 'langages' },
+    { nom: 'Bash', image: 'assets/langages/bash.png', lien: 'https://www.gnu.org/software/bash/', categorie: 'langages' },
+    { nom: 'VBA', image: 'assets/langages/vba.png', lien: 'https://learn.microsoft.com/fr-fr/office/vba/', categorie: 'langages' },
+    { nom: 'C#', image: 'assets/langages/csharp.svg', lien: 'https://docs.microsoft.com/en-us/dotnet/csharp/', categorie: 'langages' },
+    { nom: 'Java', image: 'assets/langages/java.svg', lien: 'https://www.oracle.com/java/', categorie: 'langages' },
+    { nom: 'Django', image: 'assets/frameworks/django.png', lien: 'https://www.djangoproject.com/', categorie: 'frameworks' },
     { nom: '.NET', image: 'assets/frameworks/dotnet.svg', lien: 'https://dotnet.microsoft.com/fr-fr/', categorie: 'frameworks' },
     { nom: 'Symfony', image: 'assets/frameworks/symfony.svg', lien: 'https://symfony.com', categorie: 'frameworks' },
     { nom: 'React', image: 'assets/frameworks/react.svg', lien: 'https://reactjs.org/', categorie: 'frameworks' },

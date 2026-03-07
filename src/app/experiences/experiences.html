@@ -1,0 +1,158 @@
+<!-- ===== VUE : GRILLE DES LOGOS ===== -->
+<div *ngIf="!selectedItem" class="py-10 px-4">
+  <h2 class="text-3xl font-bold text-center mb-2">Expériences</h2>
+  <p class="text-center text-base-content/60 mb-10 text-sm">
+    Cliquez sur un logo pour voir les détails
+  </p>
+
+  <div class="flex flex-wrap justify-center gap-10">
+    <div
+      *ngFor="let item of items"
+      class="flex flex-col items-center gap-3 cursor-pointer group"
+      (click)="selectItem(item)"
+    >
+      <div class="tooltip tooltip-bottom" [attr.data-tip]="item.company">
+        <div
+          class="w-36 h-36 rounded-full ring-2 ring-base-300 group-hover:ring-primary group-hover:scale-110 transition-all duration-200 bg-white shadow-md overflow-hidden"
+        >
+          <img
+            [src]="item.logo"
+            [alt]="item.company"
+            class="w-full h-full object-contain p-4"
+          />
+        </div>
+      </div>
+
+      <span class="text-sm font-semibold text-center w-[130px] min-h-[40px] flex items-center justify-center leading-tight text-base-content/80">
+        {{ item.company }}
+      </span>
+      <div class="badge badge-outline badge-sm">{{ item.date }}</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== VUE : DÉTAIL ===== -->
+<div *ngIf="selectedItem" class="p-6 max-w-5xl mx-auto">
+
+  <button class="btn btn-primary btn-sm gap-2 mb-6" (click)="goBack()">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+      viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+    </svg>
+    Retour aux expériences
+  </button>
+
+  <div class="flex flex-col lg:flex-row gap-6 items-stretch">
+
+    <!-- Card gauche : détails -->
+    <div class="card bg-base-100 shadow-xl flex-1 flex flex-col">
+      <div class="card-body flex-1">
+
+        <div class="flex items-center gap-4 mb-2">
+          <div class="w-24 h-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 bg-white overflow-hidden flex items-center justify-center">
+            <img
+              [src]="selectedItem.logo"
+              [alt]="selectedItem.company"
+              class="w-full h-full object-contain p-2"
+            />
+          </div>
+          <div>
+            <h2 class="card-title text-lg leading-tight">{{ selectedItem.title }}</h2>
+            <p class="text-sm font-medium text-base-content/70">{{ selectedItem.company }}</p>
+            <div class="badge badge-outline mt-1">{{ selectedItem.date }}</div>
+          </div>
+        </div>
+
+        <div class="divider my-1"></div>
+
+        <div *ngIf="selectedItem.tasks?.length">
+          <h3 class="font-semibold text-xs uppercase tracking-widest text-base-content/50 mb-3">
+            Missions
+          </h3>
+          <ul class="space-y-2">
+            <li *ngFor="let task of selectedItem.tasks" class="flex items-start gap-2 text-sm">
+              <span class="text-primary font-bold mt-0.5">▸</span>
+              <span>{{ task }}</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Card droite : stack technique -->
+    <div class="card bg-base-100 shadow-xl w-full lg:w-96 shrink-0 flex flex-col">
+      <div class="card-body p-5 gap-0 flex-1">
+
+        <h3 class="text-xs font-semibold uppercase tracking-widest text-base-content/50 mb-2 text-center">
+          Stack technique
+        </h3>
+
+        <!-- FRONTEND -->
+        <ng-container *ngIf="selectedItem.techStack?.frontend?.length">
+          <div class="divider text-xs font-bold text-primary">Frontend</div>
+          <div class="flex flex-wrap justify-center gap-5 py-2">
+            <div
+              *ngFor="let tech of selectedItem.techStack!.frontend"
+              class="flex flex-col items-center gap-1"
+            >
+              <div class="w-10 h-10 flex items-center justify-center">
+                <img [src]="tech.logo" [alt]="tech.name" class="w-full h-full object-contain" />
+              </div>
+              <span class="text-xs text-center font-medium text-base-content/70 w-14 leading-tight">
+                {{ tech.name }}
+              </span>
+            </div>
+          </div>
+        </ng-container>
+
+        <!-- BACKEND -->
+        <ng-container *ngIf="selectedItem.techStack?.backend?.length">
+          <div class="divider text-xs font-bold text-secondary">Backend</div>
+          <div class="flex flex-wrap justify-center gap-5 py-2">
+            <div
+              *ngFor="let tech of selectedItem.techStack!.backend"
+              class="flex flex-col items-center gap-1"
+            >
+              <div class="w-10 h-10 flex items-center justify-center">
+                <img [src]="tech.logo" [alt]="tech.name" class="w-full h-full object-contain" />
+              </div>
+              <span class="text-xs text-center font-medium text-base-content/70 w-14 leading-tight">
+                {{ tech.name }}
+              </span>
+            </div>
+          </div>
+        </ng-container>
+
+        <!-- OUTILS -->
+        <ng-container *ngIf="selectedItem.techStack?.outils?.length">
+          <div class="divider text-xs font-bold text-accent">Outils</div>
+          <div class="flex flex-wrap justify-center gap-5 py-2">
+            <div
+              *ngFor="let tech of selectedItem.techStack!.outils"
+              class="flex flex-col items-center gap-1"
+            >
+              <div class="w-10 h-10 flex items-center justify-center">
+                <img [src]="tech.logo" [alt]="tech.name" class="w-full h-full object-contain" />
+              </div>
+              <span class="text-xs text-center font-medium text-base-content/70 w-14 leading-tight">
+                {{ tech.name }}
+              </span>
+            </div>
+          </div>
+        </ng-container>
+
+        <!-- Fallback -->
+        <div
+          *ngIf="!selectedItem.techStack?.frontend?.length && !selectedItem.techStack?.backend?.length && !selectedItem.techStack?.outils?.length"
+          class="text-center text-base-content/40 text-sm py-4"
+        >
+          Aucun outil renseigné
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

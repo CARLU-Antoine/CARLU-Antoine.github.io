@@ -7,7 +7,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.css'],
 })
 export class FooterComponent {
-  scrollTo(sectionId: string) {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-  }
 }

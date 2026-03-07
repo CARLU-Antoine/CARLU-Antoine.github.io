@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, OnDestroy, HostListener, ElementRef, NgZone } from '@angular/core';
 import { AccueilComponent } from '../accueil/accueil';
 import { PresentationComponent } from '../presentation/presentation';
-import { FriseComponent } from '../frise/frise';
+import { ExpriencesComponent } from '../experiences/experiences';
 import { OutilsComponent } from '../outils/outils';
 import { ProjetsComponent } from '../projets/projets';
 import { FooterComponent } from '../footer/footer';
@@ -10,7 +10,7 @@ import { FooterComponent } from '../footer/footer';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, AccueilComponent, PresentationComponent, FriseComponent, OutilsComponent, ProjetsComponent, FooterComponent],
+  imports: [CommonModule, AccueilComponent, PresentationComponent, ExpriencesComponent, OutilsComponent, ProjetsComponent, FooterComponent],
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.css']
 })
@@ -81,5 +81,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
     const target = event.target as Node;
     if (!dropdown || dropdown.contains(target)) return;
     this.menuOpen = false;
+  }
+  toggleTheme(event: Event): void {
+    const isDark = (event.target as HTMLInputElement).checked;
+    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
   }
 }
