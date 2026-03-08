@@ -103,7 +103,7 @@ export class ExperiencesComponent {
     },
 
     {
-      date: '2023',
+      date: '03/2023 - 06/2023',
       title: 'Stage développeur VBA',
       company: 'Mairie de Saint-Maur-des-Fossés',
       logo: 'assets/entreprises/SaintMaurdesFossés.png',
@@ -124,7 +124,7 @@ export class ExperiencesComponent {
     },
 
     {
-      date: '2022',
+      date: '12/2021 - 01/2022',
       title: 'Stage développeur frontend',
       company: 'Coachinternet',
       logo: 'assets/entreprises/coachinternet.png',
