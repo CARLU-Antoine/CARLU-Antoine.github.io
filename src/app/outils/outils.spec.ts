@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { outilsComponent } from './outils';
+import { OutilsComponent } from './outils';
 import { describe,beforeEach,it,expect } from 'vitest';
 
 describe('OutilsComponent', () => {

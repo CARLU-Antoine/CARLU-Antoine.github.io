@@ -1,71 +1,189 @@
-<div class="py-16 px-4 max-w-6xl mx-auto">
-  <h2 class="text-3xl font-bold text-center mb-10">Mes projets</h2>
+<div class="py-20 px-6 max-w-7xl mx-auto">
 
-  <!-- Tabs filtre -->
-  <div class="flex justify-center mb-10 flex-wrap gap-2">
-    <div class="tabs tabs-boxed">
+  <h2 class="text-4xl font-bold text-center mb-14 tracking-tight">
+    Mes projets
+  </h2>
+
+  <!-- Tabs -->
+  <div class="flex justify-center mb-12 flex-wrap gap-2">
+    <div class="tabs tabs-boxed bg-base-200/60 backdrop-blur-md p-1">
+
       @for (cat of categories; track cat.id) {
-        <a class="tab"
+        <a class="tab transition-all duration-300"
            [class.tab-active]="activeTab === cat.id"
            (click)="activeTab = cat.id">
+
           {{ cat.label }}
+
         </a>
       }
+
     </div>
   </div>
 
   <!-- Grid projets -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    @for (project of filtered; track project.title) {
-      <div class="card bg-base-100 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all">
-        <figure class="cursor-pointer" (click)="openModal(project.images)">
-          <img [src]="project.images[0].src" [alt]="project.title" class="w-full h-48 object-cover">
-        </figure>
-        <div class="card-body">
-          <h3 class="card-title text-lg">{{ project.title }}</h3>
-          <p class="text-sm text-base-content/70">{{ project.description }}</p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-          <div class="flex flex-wrap gap-1 mt-2">
+    @for (project of filtered; track project.title; let i = $index) {
+
+      <div
+        class="fade-card group rounded-2xl overflow-hidden
+               bg-base-100/80 backdrop-blur-lg
+               border border-base-200
+               shadow-lg hover:shadow-2xl
+               transition-all duration-500
+               hover:-translate-y-2"
+        [style.animation-delay]="i * 120 + 'ms'"
+      >
+
+        <!-- Image -->
+        <figure
+          class="relative cursor-pointer overflow-hidden aspect-[16/10]"
+          (click)="openModal(project.images)"
+        >
+
+          <img
+            [src]="project.images[0].src"
+            [alt]="project.title"
+            class="absolute inset-0 w-full h-full object-cover
+                   transition-transform duration-500
+                   group-hover:scale-110"
+          />
+
+          <!-- overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent
+                      opacity-0 group-hover:opacity-100 transition"></div>
+
+          <div class="absolute bottom-3 left-4 text-white opacity-0
+                      group-hover:opacity-100 transition">
+            <p class="text-sm">Voir les images</p>
+          </div>
+
+        </figure>
+
+        <!-- contenu -->
+        <div class="p-6 flex flex-col gap-3">
+
+          <h3 class="text-xl font-semibold tracking-tight">
+            {{ project.title }}
+          </h3>
+
+          <p class="text-sm text-base-content/70 leading-relaxed">
+            {{ project.description }}
+          </p>
+
+          <!-- technologies -->
+          <div class="flex flex-wrap gap-2 mt-2">
+
             @for (tech of project.technologies; track tech.name) {
-              <span class="badge badge-md text-white font-semibold px-3 py-3" [style.background-color]="tech.color">
+
+              <span
+                class="text-xs font-semibold px-3 py-1 rounded-full text-white shadow-sm"
+                [style.background-color]="tech.color"
+              >
                 {{ tech.name }}
               </span>
+
             }
+
           </div>
 
-          <div class="card-actions justify-end mt-2">
-            <a [href]="project.projetLink" target="_blank" class="btn btn-primary btn-sm">
-              <i class="fab fa-github mr-1"></i> GitHub
+          <!-- bouton -->
+          <div class="mt-4">
+
+            <a
+              [href]="project.projetLink"
+              target="_blank"
+              class="inline-flex items-center gap-2
+                     px-4 py-2 rounded-lg
+                     bg-primary text-white text-sm
+                     hover:scale-105 hover:shadow-lg
+                     transition"
+            >
+
+              <i class="fab fa-github"></i>
+              Voir le projet
+
             </a>
+
           </div>
+
         </div>
+
       </div>
+
     }
+
   </div>
 </div>
 
-<!-- Modal images -->
+<!-- MODAL -->
+
 @if (modalOpen) {
-  <div class="modal modal-open" (click)="closeModal()">
-    <div class="modal-box max-w-3xl" (click)="$event.stopPropagation()">
-      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" (click)="closeModal()">✕</button>
 
-      <div class="relative">
-        <img 
-          [src]="currentImages[currentImageIndex].src"
-          [alt]="currentImages[currentImageIndex].title"
-          class="h-[75vh] w-[95%] rounded-lg object-contain mx-auto"
-        />
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
+     (click)="closeModal()">
 
-        <div class="absolute left-2 right-2 top-1/2 flex -translate-y-1/2 justify-between">
-          <button class="btn btn-circle btn-sm" (click)="prevImage()">❮</button>
-          <button class="btn btn-circle btn-sm" (click)="nextImage()">❯</button>
-        </div>
-      </div>
+  <div class="relative max-w-5xl w-full"
+       (click)="$event.stopPropagation()">
 
-      <p class="text-center text-sm mt-2 text-base-content/70">
-        {{ currentImages[currentImageIndex].title }} ({{ currentImageIndex + 1 }}/{{ currentImages.length }})
-      </p>
+    <!-- close button -->
+    <button
+      class="absolute -top-12 right-0 p-2 rounded-full
+             bg-white/20 hover:bg-white/40
+             backdrop-blur transition"
+      (click)="closeModal()"
+    >
+
+      <svg xmlns="http://www.w3.org/2000/svg"
+           class="w-6 h-6 text-white"
+           fill="none"
+           viewBox="0 0 24 24"
+           stroke="currentColor"
+           stroke-width="2">
+
+        <path stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 6l12 12M6 18L18 6" />
+
+      </svg>
+
+    </button>
+
+    <!-- image -->
+    <img
+      [src]="currentImages[currentImageIndex].src"
+      [alt]="currentImages[currentImageIndex].title"
+      class="w-full max-h-[80vh] object-contain rounded-xl shadow-2xl"
+    />
+
+    <!-- navigation -->
+    <div class="absolute inset-y-0 left-0 right-0 flex items-center justify-between px-4">
+
+      <button
+        class="p-3 rounded-full bg-black/40 text-white hover:bg-black/60 transition"
+        (click)="prevImage()"
+      >
+        ❮
+      </button>
+
+      <button
+        class="p-3 rounded-full bg-black/40 text-white hover:bg-black/60 transition"
+        (click)="nextImage()"
+      >
+        ❯
+      </button>
+
     </div>
+
+    <!-- caption -->
+    <p class="text-center text-sm text-white mt-4">
+      {{ currentImages[currentImageIndex].title }}
+      ({{ currentImageIndex + 1 }}/{{ currentImages.length }})
+    </p>
+
   </div>
+
+</div>
+
 }

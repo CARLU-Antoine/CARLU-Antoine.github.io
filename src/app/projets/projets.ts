@@ -33,22 +33,6 @@ export class ProjetsComponent {
 
   projectsByLanguage: Record<string, Project[]> = {
     react: [
-     {
-        title: 'Portfolio',
-        images: [
-          { src: 'assets/project/nouveau-portfolio/accueil.png', title: "Accueil" },
-          { src: 'assets/project/nouveau-portfolio/presentation.png', title: "Présentation de moi" },
-          { src: 'assets/project/nouveau-portfolio/experiences.png', title: "Mes expériences" },
-          { src: 'assets/project/nouveau-portfolio/preview-experience.png', title: "Détails de l'expérience" },
-          { src: 'assets/project/nouveau-portfolio/competences.png', title: "Mes compétences" },
-          { src: 'assets/project/nouveau-portfolio/projets.png', title: "Mes projets" },
-        ],
-        technologies: [
-          { name: 'React', color: '#61DAFB' }
-        ],
-        description: "Mon portfolio présente mes projets, mes compétences et les technologies que j'utilise.",
-        projetLink: 'https://github.com/CARLU-Antoine/ancien-portoflio',
-      },
       {
         title: 'LiteFlow',
         images: [
@@ -223,6 +207,23 @@ export class ProjetsComponent {
       },
     ],
     angular: [
+     {
+        title: 'Portfolio',
+        images: [
+          { src: 'assets/project/nouveau-portfolio/accueil.png', title: "Accueil" },
+          { src: 'assets/project/nouveau-portfolio/presentation.png', title: "Présentation de moi" },
+          { src: 'assets/project/nouveau-portfolio/experiences.png', title: "Mes expériences" },
+          { src: 'assets/project/nouveau-portfolio/preview-experience.png', title: "Détails de l'expérience" },
+          { src: 'assets/project/nouveau-portfolio/competences.png', title: "Mes compétences" },
+          { src: 'assets/project/nouveau-portfolio/projets.png', title: "Mes projets" },
+        ],
+        technologies: [
+          { name: 'Angular', color: '#DD0031' },
+          { name: 'TypeScript', color: '#3178C6' }
+        ],
+        description: "Mon portfolio présente mes projets, mes compétences et les technologies que j'utilise. Il est développé avec Angular et TypeScript pour une expérience utilisateur fluide et moderne avec daisyui qui est une bibliothèque de composants UI.",
+        projetLink: 'https://github.com/CARLU-Antoine/CARLU-Antoine.github.io',
+      },
       {
         title: 'Projet Angular / Ionic',
         images: [{ src: 'assets/project/angular-ionic.png', title: 'Interface mobile' }],
