@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OutilsComponent } from './outils';
+import { CompetencesComponent } from './competences';
 import { describe,beforeEach,it,expect } from 'vitest';
 
-describe('OutilsComponent', () => {
-  let component: OutilsComponent;
-  let fixture: ComponentFixture<OutilsComponent>;
+describe('CompetencesComponent', () => {
+  let component: CompetencesComponent;
+  let fixture: ComponentFixture<CompetencesComponent>;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OutilsComponent],
+      imports: [CompetencesComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(OutilsComponent);
+    fixture = TestBed.createComponent(CompetencesComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

@@ -2,15 +2,15 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, OnDestroy, HostListener, ElementRef, NgZone } from '@angular/core';
 import { AccueilComponent } from '../accueil/accueil';
 import { PresentationComponent } from '../presentation/presentation';
-import { ExpriencesComponent } from '../experiences/experiences';
-import { OutilsComponent } from '../outils/outils';
+import { ExperiencesComponent } from '../experiences/experiences';
+import { CompetencesComponent } from '../competences/competences';
 import { ProjetsComponent } from '../projets/projets';
 import { FooterComponent } from '../footer/footer';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, AccueilComponent, PresentationComponent, ExpriencesComponent, OutilsComponent, ProjetsComponent, FooterComponent],
+  imports: [CommonModule, AccueilComponent, PresentationComponent, ExperiencesComponent, CompetencesComponent, ProjetsComponent, FooterComponent],
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.css']
 })
@@ -22,26 +22,24 @@ export class NavbarComponent implements OnInit, OnDestroy {
   sections = [
     { id: 'accueil',      label: 'Accueil' },
     { id: 'presentation', label: 'Présentation' },
-    { id: 'frise',        label: 'Expériences' },
-    { id: 'outils',       label: 'Outils' },
+    { id: 'experiences',        label: 'Expériences' },
+    { id: 'competences',       label: 'Compétences' },
     { id: 'projets',      label: 'Projets' },
   ];
 
   constructor(private el: ElementRef, private ngZone: NgZone) {}
 
   ngOnInit(): void {
-    // Lancement initial
     this.onScroll();
   }
 
   ngOnDestroy(): void {
-    // Le HostListener se nettoie automatiquement
   }
 
-  // ✅ Détecte la section active en fonction du scroll
+
   @HostListener('window:scroll')
   onScroll(): void {
-    const navbarHeight = 64; // hauteur fixe de la navbar en px
+    const navbarHeight = 64;
     const scrollY = window.scrollY + navbarHeight + 10;
 
     let current = this.sections[0].id;

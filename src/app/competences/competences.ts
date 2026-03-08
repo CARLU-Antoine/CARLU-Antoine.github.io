@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-outils',
+  selector: 'app-competences',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './outils.html',
-  styleUrls: ['./outils.css'],
+  templateUrl: './competences.html',
+  styleUrls: ['./competences.css'],
 })
-export class OutilsComponent {
+export class CompetencesComponent {
   activeTab = 'tout';
 
   categories = [
