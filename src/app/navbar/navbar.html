@@ -11,8 +11,8 @@
             <a
               (click)="scrollTo(section.id, $event);"
               [class.border-l-4]="activeSection === section.id"
-              [class.border-blue-500]="activeSection === section.id"
-              [class.text-blue-500]="activeSection === section.id"
+              [class.border-purple-500]="activeSection === section.id"
+              [class.text-purple-500]="activeSection === section.id"
               class="transition-all duration-200">
               {{ section.label }}
             </a>
@@ -28,8 +28,8 @@
         <a
           (click)="scrollTo(section.id)"
           [class.border-b-2]="activeSection === section.id"
-          [class.border-blue-500]="activeSection === section.id"
-          [class.text-blue-500]="activeSection === section.id"
+          [class.border-purple-500]="activeSection === section.id"
+          [class.text-purple-500]="activeSection === section.id"
           class="transition-all duration-200 rounded-none">
           {{ section.label }}
         </a>
