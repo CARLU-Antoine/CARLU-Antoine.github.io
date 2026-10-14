@@ -6,15 +6,108 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <style>
+    #cookie-banner {
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 2rem);
+      max-width: 640px;
+      background: #fff;
+      color: #1f2937;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      padding: 1rem 1.25rem;
+      display: none;
+      z-index: 9999;
+      font-family: system-ui, sans-serif;
+      font-size: 0.9rem;
+    }
+    #cookie-banner p { margin: 0 0 0.75rem; line-height: 1.4; }
+    #cookie-banner .cookie-actions { display: flex; gap: 0.5rem; justify-content: flex-end; }
+    #cookie-banner button {
+      padding: 0.45rem 1rem;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      background: #fff;
+      color: #1f2937;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+    #cookie-banner button#cookie-accept {
+      background: #2563eb;
+      border-color: #2563eb;
+      color: #fff;
+    }
+  </style>
+
   <script type="text/javascript">
+    var CLARITY_ID = "yxqzuz21la";
+
+    function loadClarity() {
+      if (window.clarityLoaded) return;
+      window.clarityLoaded = true;
+
       (function(c,l,a,r,i,t,y){
-          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "v75fx4tc0f");
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", CLARITY_ID);
+
+      window.clarity('consentv2', {
+        ad_Storage: 'denied',
+        analytics_Storage: 'granted'
+      });
+    }
+
+    function getConsent() {
+      try { return localStorage.getItem('cookie-consent'); } catch (e) { return null; }
+    }
+
+    function setConsent(value) {
+      try { localStorage.setItem('cookie-consent', value); } catch (e) {}
+    }
+
+    // Choix déjà fait lors d'une visite précédente
+    if (getConsent() === 'accepted') {
+      loadClarity();
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var banner = document.getElementById('cookie-banner');
+
+      if (!getConsent()) {
+        banner.style.display = 'block';
+      }
+
+      document.getElementById('cookie-accept').addEventListener('click', function () {
+        setConsent('accepted');
+        banner.style.display = 'none';
+        loadClarity();
+      });
+
+      document.getElementById('cookie-refuse').addEventListener('click', function () {
+        setConsent('refused');
+        banner.style.display = 'none';
+      });
+    });
   </script>
 </head>
 <body>
   <app-root></app-root>
+
+  <div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Consentement aux cookies">
+    <p>
+      Ce site utilise Microsoft Clarity pour mesurer l'audience et améliorer
+      l'expérience de navigation. Acceptez-vous le dépôt de ces cookies ?
+    </p>
+    <div class="cookie-actions">
+      <button id="cookie-refuse" type="button">Refuser</button>
+      <button id="cookie-accept" type="button">Accepter</button>
+    </div>
+  </div>
 </body>
 </html>
